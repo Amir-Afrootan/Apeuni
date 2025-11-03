@@ -16,7 +16,7 @@ edge_options.add_argument(f"user-data-dir={selenium_profile_path}")
 edge_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 # edge_options.add_argument("--headless")  # در صورت نیاز
 
-service = Service(r"D:\Programming\Python\Apeuni\msedgedriver.exe")
+service = Service(r"msedgedriver.exe")
 driver = webdriver.Edge(service=service, options=edge_options)
 
 # ---------------------------
