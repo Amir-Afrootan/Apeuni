@@ -74,7 +74,7 @@ def fetch_answer_rs(url):  return fetch_answer(url, "p[class^='Answer__Paragraph
 def main():
     mode = input("Enter 1:WFD 2:ASQ 3:RS => ").strip()
     files = {
-        "1": (r"WFD\wfds.txt", r"WFD\Output.txt", fetch_answer_wfd),
+        "1": (r"WFD\URL 2025-11.txt", r"WFD\Output.txt", fetch_answer_wfd),
         "2": (r"ASQ\URL 2025-10.txt", r"ASQ\Output.txt", fetch_answer_asq),
         "3": (r"RS\URL 2025-10.txt", r"RS\Output.txt", fetch_answer_rs)
     }
