@@ -43,8 +43,8 @@ def main():
     for line in lines:
         total_sentences += 1
         print(f"\nSentence {total_sentences}:")
-        print(f"👉 {line}")
-        typed = input("✏️ Please type the sentence: ").strip()
+        print(f"👉  {line}")
+        typed = input("✏️   Please type the sentence: ").strip()
 
         correct_count, total_words, mistakes = compare_sentences(line, typed)
 
