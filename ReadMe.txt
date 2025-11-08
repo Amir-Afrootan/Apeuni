@@ -3,7 +3,7 @@ pip install selenium
 
 ///////////////////////////////
 Get the latest version Microsoft Edge WebDriver:
-https://msedgedriver.microsoft.com/141.0.3537.99/edgedriver_win64.zip
+https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver?form=MA13LH#downloads
 
 ///////////////////////////////
 How to remove empty Lines:

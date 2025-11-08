@@ -1,0 +1,1452 @@
+576. 1. get
+576. 1. skip
+576. 1. maintain
+576. 1. avoid
+576. 2. get
+576. 2. skip
+576. 2. maintain
+576. 2. avoid
+576. 3. get
+576. 3. skip
+576. 3. maintain
+576. 3. avoid
+576. 4. get
+576. 4. skip
+576. 4. maintain
+576. 4. avoid
+1190. 1. behind
+1190. 1. before
+1190. 1. across
+1190. 1. from
+1190. 2. behind
+1190. 2. before
+1190. 2. across
+1190. 2. from
+1190. 3. behind
+1190. 3. before
+1190. 3. across
+1190. 3. from
+1190. 4. behind
+1190. 4. before
+1190. 4. across
+1190. 4. from
+1331. 1. invention
+1331. 1. judgement
+1331. 1. measurement
+1331. 1. movement
+1331. 2. invention
+1331. 2. judgement
+1331. 2. measurement
+1331. 2. movement
+1331. 3. invention
+1331. 3. judgement
+1331. 3. measurement
+1331. 3. movement
+1331. 4. invention
+1331. 4. judgement
+1331. 4. measurement
+1331. 4. movement
+1331. 5. invention
+1331. 5. judgement
+1331. 5. measurement
+1331. 5. movement
+866. 1. as long as
+866. 1. in order to
+866. 1. in spite of
+866. 1. as well as
+866. 2. as long as
+866. 2. in order to
+866. 2. in spite of
+866. 2. as well as
+866. 3. as long as
+866. 3. in order to
+866. 3. in spite of
+866. 3. as well as
+866. 4. as long as
+866. 4. in order to
+866. 4. in spite of
+866. 4. as well as
+205. 1. emotion
+205. 1. experience
+205. 1. expression
+205. 1. expectation
+205. 2. emotion
+205. 2. experience
+205. 2. expression
+205. 2. expectation
+205. 3. emotion
+205. 3. experience
+205. 3. expression
+205. 3. expectation
+205. 4. emotion
+205. 4. experience
+205. 4. expression
+205. 4. expectation
+205. 5. emotion
+205. 5. experience
+205. 5. expression
+205. 5. expectation
+125. 1. However
+125. 1. Then
+125. 1. Subsequently
+125. 1. Consistently
+125. 2. However
+125. 2. Then
+125. 2. Subsequently
+125. 2. Consistently
+125. 3. However
+125. 3. Then
+125. 3. Subsequently
+125. 3. Consistently
+125. 4. However
+125. 4. Then
+125. 4. Subsequently
+125. 4. Consistently
+125. 5. However
+125. 5. Then
+125. 5. Subsequently
+125. 5. Consistently
+125. 6. However
+125. 6. Then
+125. 6. Subsequently
+125. 6. Consistently
+125. 7. However
+125. 7. Then
+125. 7. Subsequently
+125. 7. Consistently
+402. 1. intention
+402. 1. concept
+402. 1. renovation
+402. 1. identity
+402. 2. intention
+402. 2. concept
+402. 2. renovation
+402. 2. identity
+402. 3. intention
+402. 3. concept
+402. 3. renovation
+402. 3. identity
+402. 4. intention
+402. 4. concept
+402. 4. renovation
+402. 4. identity
+402. 5. intention
+402. 5. concept
+402. 5. renovation
+402. 5. identity
+444. 1. not
+444. 1. yet
+444. 1. none
+444. 1. both
+444. 2. not
+444. 2. yet
+444. 2. none
+444. 2. both
+444. 3. not
+444. 3. yet
+444. 3. none
+444. 3. both
+444. 4. not
+444. 4. yet
+444. 4. none
+444. 4. both
+444. 5. not
+444. 5. yet
+444. 5. none
+444. 5. both
+1178. 1. as well
+1178. 1. so too
+1178. 1. neither
+1178. 1. whether
+1178. 2. as well
+1178. 2. so too
+1178. 2. neither
+1178. 2. whether
+1178. 3. as well
+1178. 3. so too
+1178. 3. neither
+1178. 3. whether
+1178. 4. as well
+1178. 4. so too
+1178. 4. neither
+1178. 4. whether
+734. 1. guilty
+734. 1. capability
+734. 1. culpability
+734. 1. reliability
+734. 2. guilty
+734. 2. capability
+734. 2. culpability
+734. 2. reliability
+734. 3. guilty
+734. 3. capability
+734. 3. culpability
+734. 3. reliability
+734. 4. guilty
+734. 4. capability
+734. 4. culpability
+734. 4. reliability
+1165. 1. against
+1165. 1. along
+1165. 1. with
+1165. 1. within
+1165. 2. against
+1165. 2. along
+1165. 2. with
+1165. 2. within
+1165. 3. against
+1165. 3. along
+1165. 3. with
+1165. 3. within
+1165. 4. against
+1165. 4. along
+1165. 4. with
+1165. 4. within
+1226. 1. delivered
+1226. 1. protected
+1226. 1. demanded
+1226. 1. overviewed
+1226. 2. delivered
+1226. 2. protected
+1226. 2. demanded
+1226. 2. overviewed
+1226. 3. delivered
+1226. 3. protected
+1226. 3. demanded
+1226. 3. overviewed
+1226. 4. delivered
+1226. 4. protected
+1226. 4. demanded
+1226. 4. overviewed
+403. 1. pointed
+403. 1. claimed
+403. 1. demanded
+403. 1. named
+403. 2. pointed
+403. 2. claimed
+403. 2. demanded
+403. 2. named
+403. 3. pointed
+403. 3. claimed
+403. 3. demanded
+403. 3. named
+403. 4. pointed
+403. 4. claimed
+403. 4. demanded
+403. 4. named
+403. 5. pointed
+403. 5. claimed
+403. 5. demanded
+403. 5. named
+403. 6. pointed
+403. 6. claimed
+403. 6. demanded
+403. 6. named
+862. 1. times
+862. 1. cases
+862. 1. brief
+862. 1. extent
+862. 2. times
+862. 2. cases
+862. 2. brief
+862. 2. extent
+862. 3. times
+862. 3. cases
+862. 3. brief
+862. 3. extent
+626. 1. present
+626. 1. prove
+626. 1. show
+626. 1. illustrate
+626. 2. present
+626. 2. prove
+626. 2. show
+626. 2. illustrate
+626. 3. present
+626. 3. prove
+626. 3. show
+626. 3. illustrate
+626. 4. present
+626. 4. prove
+626. 4. show
+626. 4. illustrate
+48. 1. well
+48. 1. better
+48. 1. be
+48. 1. thereby
+48. 2. well
+48. 2. better
+48. 2. be
+48. 2. thereby
+48. 3. well
+48. 3. better
+48. 3. be
+48. 3. thereby
+48. 4. well
+48. 4. better
+48. 4. be
+48. 4. thereby
+48. 5. well
+48. 5. better
+48. 5. be
+48. 5. thereby
+1321. 1. played
+1321. 1. is
+1321. 1. became
+1321. 1. undo
+1321. 2. played
+1321. 2. is
+1321. 2. became
+1321. 2. undo
+1321. 3. played
+1321. 3. is
+1321. 3. became
+1321. 3. undo
+1321. 4. played
+1321. 4. is
+1321. 4. became
+1321. 4. undo
+1321. 5. played
+1321. 5. is
+1321. 5. became
+1321. 5. undo
+34. 1. would work
+34. 1. had worked
+34. 1. has worked
+34. 1. has yet to work
+34. 2. would work
+34. 2. had worked
+34. 2. has worked
+34. 2. has yet to work
+34. 3. would work
+34. 3. had worked
+34. 3. has worked
+34. 3. has yet to work
+34. 4. would work
+34. 4. had worked
+34. 4. has worked
+34. 4. has yet to work
+234. 1. dew
+234. 1. claw
+234. 1. clue
+234. 1. due
+234. 2. dew
+234. 2. claw
+234. 2. clue
+234. 2. due
+234. 3. dew
+234. 3. claw
+234. 3. clue
+234. 3. due
+234. 4. dew
+234. 4. claw
+234. 4. clue
+234. 4. due
+234. 5. dew
+234. 5. claw
+234. 5. clue
+234. 5. due
+388. 1. rearranged
+388. 1. exchanged
+388. 1. conserved
+388. 1. converted
+388. 2. rearranged
+388. 2. exchanged
+388. 2. conserved
+388. 2. converted
+388. 3. rearranged
+388. 3. exchanged
+388. 3. conserved
+388. 3. converted
+388. 4. rearranged
+388. 4. exchanged
+388. 4. conserved
+388. 4. converted
+388. 5. rearranged
+388. 5. exchanged
+388. 5. conserved
+388. 5. converted
+388. 6. rearranged
+388. 6. exchanged
+388. 6. conserved
+388. 6. converted
+283. 1. different parts
+283. 1. these origins
+283. 1. further afield
+283. 1. specific sources
+283. 2. different parts
+283. 2. these origins
+283. 2. further afield
+283. 2. specific sources
+283. 3. different parts
+283. 3. these origins
+283. 3. further afield
+283. 3. specific sources
+283. 4. different parts
+283. 4. these origins
+283. 4. further afield
+283. 4. specific sources
+920. 1. spread
+920. 1. deepen
+920. 1. unfold
+920. 1. splay
+920. 2. spread
+920. 2. deepen
+920. 2. unfold
+920. 2. splay
+920. 3. spread
+920. 3. deepen
+920. 3. unfold
+920. 3. splay
+920. 4. spread
+920. 4. deepen
+920. 4. unfold
+920. 4. splay
+920. 5. spread
+920. 5. deepen
+920. 5. unfold
+920. 5. splay
+220. 1. at
+220. 1. for
+220. 1. in
+220. 1. by
+220. 2. at
+220. 2. for
+220. 2. in
+220. 2. by
+220. 3. at
+220. 3. for
+220. 3. in
+220. 3. by
+220. 4. at
+220. 4. for
+220. 4. in
+220. 4. by
+220. 5. at
+220. 5. for
+220. 5. in
+220. 5. by
+220. 6. at
+220. 6. for
+220. 6. in
+220. 6. by
+132. 1. visually
+132. 1. commonly
+132. 1. surprisingly
+132. 1. spiritually
+132. 2. visually
+132. 2. commonly
+132. 2. surprisingly
+132. 2. spiritually
+132. 3. visually
+132. 3. commonly
+132. 3. surprisingly
+132. 3. spiritually
+132. 4. visually
+132. 4. commonly
+132. 4. surprisingly
+132. 4. spiritually
+144. 1. in the same way which
+144. 1. in similar ways to those
+144. 1. in similar ways that
+144. 1. in the same way that
+144. 2. in the same way which
+144. 2. in similar ways to those
+144. 2. in similar ways that
+144. 2. in the same way that
+144. 3. in the same way which
+144. 3. in similar ways to those
+144. 3. in similar ways that
+144. 3. in the same way that
+144. 4. in the same way which
+144. 4. in similar ways to those
+144. 4. in similar ways that
+144. 4. in the same way that
+144. 5. in the same way which
+144. 5. in similar ways to those
+144. 5. in similar ways that
+144. 5. in the same way that
+1249. 1. naturally
+1249. 1. expectedly
+1249. 1. extensively
+1249. 1. specifically
+1249. 2. naturally
+1249. 2. expectedly
+1249. 2. extensively
+1249. 2. specifically
+1249. 3. naturally
+1249. 3. expectedly
+1249. 3. extensively
+1249. 3. specifically
+1249. 4. naturally
+1249. 4. expectedly
+1249. 4. extensively
+1249. 4. specifically
+1249. 5. naturally
+1249. 5. expectedly
+1249. 5. extensively
+1249. 5. specifically
+587. 1. practiced
+587. 1. conducted
+587. 1. expected
+587. 1. recommended
+587. 2. practiced
+587. 2. conducted
+587. 2. expected
+587. 2. recommended
+587. 3. practiced
+587. 3. conducted
+587. 3. expected
+587. 3. recommended
+587. 4. practiced
+587. 4. conducted
+587. 4. expected
+587. 4. recommended
+587. 5. practiced
+587. 5. conducted
+587. 5. expected
+587. 5. recommended
+716. 1. community
+716. 1. society
+716. 1. civilization
+716. 1. class
+716. 2. community
+716. 2. society
+716. 2. civilization
+716. 2. class
+716. 3. community
+716. 3. society
+716. 3. civilization
+716. 3. class
+1171. 1. resemble
+1171. 1. stow
+1171. 1. rave
+1171. 1. offer
+1171. 2. resemble
+1171. 2. stow
+1171. 2. rave
+1171. 2. offer
+1171. 3. resemble
+1171. 3. stow
+1171. 3. rave
+1171. 3. offer
+871. 1. discourse
+871. 1. epoch
+871. 1. dialect
+871. 1. acquaintance
+871. 2. discourse
+871. 2. epoch
+871. 2. dialect
+871. 2. acquaintance
+871. 3. discourse
+871. 3. epoch
+871. 3. dialect
+871. 3. acquaintance
+871. 4. discourse
+871. 4. epoch
+871. 4. dialect
+871. 4. acquaintance
+871. 5. discourse
+871. 5. epoch
+871. 5. dialect
+871. 5. acquaintance
+155. 1. considerable
+155. 1. considerate
+155. 1. considering
+155. 1. considerably
+155. 2. considerable
+155. 2. considerate
+155. 2. considering
+155. 2. considerably
+155. 3. considerable
+155. 3. considerate
+155. 3. considering
+155. 3. considerably
+155. 4. considerable
+155. 4. considerate
+155. 4. considering
+155. 4. considerably
+3. 1. can
+3. 1. do
+3. 1. did
+3. 1. does
+3. 2. can
+3. 2. do
+3. 2. did
+3. 2. does
+3. 3. can
+3. 3. do
+3. 3. did
+3. 3. does
+3. 4. can
+3. 4. do
+3. 4. did
+3. 4. does
+3. 5. can
+3. 5. do
+3. 5. did
+3. 5. does
+861. 1. for the time being
+861. 1. at the same time
+861. 1. as ever
+861. 1. in good time
+861. 2. for the time being
+861. 2. at the same time
+861. 2. as ever
+861. 2. in good time
+861. 3. for the time being
+861. 3. at the same time
+861. 3. as ever
+861. 3. in good time
+861. 4. for the time being
+861. 4. at the same time
+861. 4. as ever
+861. 4. in good time
+861. 5. for the time being
+861. 5. at the same time
+861. 5. as ever
+861. 5. in good time
+861. 6. for the time being
+861. 6. at the same time
+861. 6. as ever
+861. 6. in good time
+875. 1. adjusts
+875. 1. shows
+875. 1. selects
+875. 1. presents
+875. 2. adjusts
+875. 2. shows
+875. 2. selects
+875. 2. presents
+875. 3. adjusts
+875. 3. shows
+875. 3. selects
+875. 3. presents
+875. 4. adjusts
+875. 4. shows
+875. 4. selects
+875. 4. presents
+1179. 1. would
+1179. 1. have
+1179. 1. should have
+1179. 1. should
+1179. 2. would
+1179. 2. have
+1179. 2. should have
+1179. 2. should
+1179. 3. would
+1179. 3. have
+1179. 3. should have
+1179. 3. should
+30. 1. featured
+30. 1. denied
+30. 1. reflected
+30. 1. caused
+30. 2. featured
+30. 2. denied
+30. 2. reflected
+30. 2. caused
+30. 3. featured
+30. 3. denied
+30. 3. reflected
+30. 3. caused
+30. 4. featured
+30. 4. denied
+30. 4. reflected
+30. 4. caused
+30. 5. featured
+30. 5. denied
+30. 5. reflected
+30. 5. caused
+579. 1. It
+579. 1. What
+579. 1. One
+579. 1. That
+579. 2. It
+579. 2. What
+579. 2. One
+579. 2. That
+579. 3. It
+579. 3. What
+579. 3. One
+579. 3. That
+579. 4. It
+579. 4. What
+579. 4. One
+579. 4. That
+579. 5. It
+579. 5. What
+579. 5. One
+579. 5. That
+303. 1. invisible
+303. 1. unknown
+303. 1. unbelievable
+303. 1. inconsistent
+303. 2. invisible
+303. 2. unknown
+303. 2. unbelievable
+303. 2. inconsistent
+303. 3. invisible
+303. 3. unknown
+303. 3. unbelievable
+303. 3. inconsistent
+303. 4. invisible
+303. 4. unknown
+303. 4. unbelievable
+303. 4. inconsistent
+131. 1. infliction
+131. 1. change
+131. 1. ocurrence
+131. 1. exchange
+131. 2. infliction
+131. 2. change
+131. 2. ocurrence
+131. 2. exchange
+131. 3. infliction
+131. 3. change
+131. 3. ocurrence
+131. 3. exchange
+131. 4. infliction
+131. 4. change
+131. 4. ocurrence
+131. 4. exchange
+1268. 1. for
+1268. 1. about
+1268. 1. at
+1268. 1. in
+1268. 2. for
+1268. 2. about
+1268. 2. at
+1268. 2. in
+1268. 3. for
+1268. 3. about
+1268. 3. at
+1268. 3. in
+1268. 4. for
+1268. 4. about
+1268. 4. at
+1268. 4. in
+1268. 5. for
+1268. 5. about
+1268. 5. at
+1268. 5. in
+1188. 1. per
+1188. 1. ever
+1188. 1. once
+1188. 1. every
+1188. 2. per
+1188. 2. ever
+1188. 2. once
+1188. 2. every
+1188. 3. per
+1188. 3. ever
+1188. 3. once
+1188. 3. every
+1188. 4. per
+1188. 4. ever
+1188. 4. once
+1188. 4. every
+867. 1. competed
+867. 1. fought
+867. 1. challenged
+867. 1. acted
+867. 2. competed
+867. 2. fought
+867. 2. challenged
+867. 2. acted
+867. 3. competed
+867. 3. fought
+867. 3. challenged
+867. 3. acted
+106. 1. created
+106. 1. innovated
+106. 1. utilized
+106. 1. heralded
+106. 2. created
+106. 2. innovated
+106. 2. utilized
+106. 2. heralded
+106. 3. created
+106. 3. innovated
+106. 3. utilized
+106. 3. heralded
+106. 4. created
+106. 4. innovated
+106. 4. utilized
+106. 4. heralded
+106. 5. created
+106. 5. innovated
+106. 5. utilized
+106. 5. heralded
+106. 6. created
+106. 6. innovated
+106. 6. utilized
+106. 6. heralded
+1263. 1. within
+1263. 1. among
+1263. 1. for
+1263. 1. of
+1263. 2. within
+1263. 2. among
+1263. 2. for
+1263. 2. of
+1263. 3. within
+1263. 3. among
+1263. 3. for
+1263. 3. of
+1263. 4. within
+1263. 4. among
+1263. 4. for
+1263. 4. of
+709. 1. solicit
+709. 1. request
+709. 1. apply
+709. 1. appeal
+709. 2. solicit
+709. 2. request
+709. 2. apply
+709. 2. appeal
+709. 3. solicit
+709. 3. request
+709. 3. apply
+709. 3. appeal
+709. 4. solicit
+709. 4. request
+709. 4. apply
+709. 4. appeal
+709. 5. solicit
+709. 5. request
+709. 5. apply
+709. 5. appeal
+1309. 1. vanished
+1309. 1. expanded
+1309. 1. introduced
+1309. 1. emerged
+1309. 2. vanished
+1309. 2. expanded
+1309. 2. introduced
+1309. 2. emerged
+1309. 3. vanished
+1309. 3. expanded
+1309. 3. introduced
+1309. 3. emerged
+1309. 4. vanished
+1309. 4. expanded
+1309. 4. introduced
+1309. 4. emerged
+1161. 1. ploughed
+1161. 1. blocked
+1161. 1. tallied
+1161. 1. endowed
+1161. 2. ploughed
+1161. 2. blocked
+1161. 2. tallied
+1161. 2. endowed
+1161. 3. ploughed
+1161. 3. blocked
+1161. 3. tallied
+1161. 3. endowed
+447. 1. collections
+447. 1. views
+447. 1. sight
+447. 1. sightings
+447. 2. collections
+447. 2. views
+447. 2. sight
+447. 2. sightings
+447. 3. collections
+447. 3. views
+447. 3. sight
+447. 3. sightings
+447. 4. collections
+447. 4. views
+447. 4. sight
+447. 4. sightings
+447. 5. collections
+447. 5. views
+447. 5. sight
+447. 5. sightings
+447. 6. collections
+447. 6. views
+447. 6. sight
+447. 6. sightings
+200. 1. assumptions
+200. 1. matters
+200. 1. missions
+200. 1. facts
+200. 2. assumptions
+200. 2. matters
+200. 2. missions
+200. 2. facts
+200. 3. assumptions
+200. 3. matters
+200. 3. missions
+200. 3. facts
+200. 4. assumptions
+200. 4. matters
+200. 4. missions
+200. 4. facts
+1180. 1. constrain
+1180. 1. contain
+1180. 1. assemble
+1180. 1. extend
+1180. 2. constrain
+1180. 2. contain
+1180. 2. assemble
+1180. 2. extend
+1180. 3. constrain
+1180. 3. contain
+1180. 3. assemble
+1180. 3. extend
+1202. 1. found
+1202. 1. fund
+1202. 1. founded
+1202. 1. find
+1202. 2. found
+1202. 2. fund
+1202. 2. founded
+1202. 2. find
+1202. 3. found
+1202. 3. fund
+1202. 3. founded
+1202. 3. find
+1162. 1. fuzzy
+1162. 1. humid
+1162. 1. monotonous
+1162. 1. arid
+1162. 2. fuzzy
+1162. 2. humid
+1162. 2. monotonous
+1162. 2. arid
+1162. 3. fuzzy
+1162. 3. humid
+1162. 3. monotonous
+1162. 3. arid
+158. 1. possibility
+158. 1. likelihood
+158. 1. opportunity
+158. 1. chance
+158. 2. possibility
+158. 2. likelihood
+158. 2. opportunity
+158. 2. chance
+158. 3. possibility
+158. 3. likelihood
+158. 3. opportunity
+158. 3. chance
+158. 4. possibility
+158. 4. likelihood
+158. 4. opportunity
+158. 4. chance
+158. 5. possibility
+158. 5. likelihood
+158. 5. opportunity
+158. 5. chance
+158. 6. possibility
+158. 6. likelihood
+158. 6. opportunity
+158. 6. chance
+47. 1. surveyors
+47. 1. surveillance
+47. 1. purveyors
+47. 1. persuasion
+47. 2. surveyors
+47. 2. surveillance
+47. 2. purveyors
+47. 2. persuasion
+47. 3. surveyors
+47. 3. surveillance
+47. 3. purveyors
+47. 3. persuasion
+47. 4. surveyors
+47. 4. surveillance
+47. 4. purveyors
+47. 4. persuasion
+47. 5. surveyors
+47. 5. surveillance
+47. 5. purveyors
+47. 5. persuasion
+180. 1. far-fetched
+180. 1. visual
+180. 1. basic
+180. 1. residual
+180. 2. far-fetched
+180. 2. visual
+180. 2. basic
+180. 2. residual
+180. 3. far-fetched
+180. 3. visual
+180. 3. basic
+180. 3. residual
+180. 4. far-fetched
+180. 4. visual
+180. 4. basic
+180. 4. residual
+180. 5. far-fetched
+180. 5. visual
+180. 5. basic
+180. 5. residual
+228. 1. marked
+228. 1. dedicated
+228. 1. made
+228. 1. inspired
+228. 2. marked
+228. 2. dedicated
+228. 2. made
+228. 2. inspired
+228. 3. marked
+228. 3. dedicated
+228. 3. made
+228. 3. inspired
+228. 4. marked
+228. 4. dedicated
+228. 4. made
+228. 4. inspired
+228. 5. marked
+228. 5. dedicated
+228. 5. made
+228. 5. inspired
+733. 1. reliability
+733. 1. sustainability
+733. 1. sustain
+733. 1. sustainable
+733. 2. reliability
+733. 2. sustainability
+733. 2. sustain
+733. 2. sustainable
+733. 3. reliability
+733. 3. sustainability
+733. 3. sustain
+733. 3. sustainable
+733. 4. reliability
+733. 4. sustainability
+733. 4. sustain
+733. 4. sustainable
+733. 5. reliability
+733. 5. sustainability
+733. 5. sustain
+733. 5. sustainable
+241. 1. winds
+241. 1. waves
+241. 1. conditions
+241. 1. earthquakes
+241. 2. winds
+241. 2. waves
+241. 2. conditions
+241. 2. earthquakes
+241. 3. winds
+241. 3. waves
+241. 3. conditions
+241. 3. earthquakes
+241. 4. winds
+241. 4. waves
+241. 4. conditions
+241. 4. earthquakes
+1158. 1. since
+1158. 1. unless
+1158. 1. although
+1158. 1. thereby
+1158. 2. since
+1158. 2. unless
+1158. 2. although
+1158. 2. thereby
+1158. 3. since
+1158. 3. unless
+1158. 3. although
+1158. 3. thereby
+1231. 1. universal
+1231. 1. amiable
+1231. 1. dishonest
+1231. 1. prestigious
+1231. 2. universal
+1231. 2. amiable
+1231. 2. dishonest
+1231. 2. prestigious
+1231. 3. universal
+1231. 3. amiable
+1231. 3. dishonest
+1231. 3. prestigious
+1231. 4. universal
+1231. 4. amiable
+1231. 4. dishonest
+1231. 4. prestigious
+259. 1. at
+259. 1. on
+259. 1. through
+259. 1. over
+259. 2. at
+259. 2. on
+259. 2. through
+259. 2. over
+259. 3. at
+259. 3. on
+259. 3. through
+259. 3. over
+259. 4. at
+259. 4. on
+259. 4. through
+259. 4. over
+259. 5. at
+259. 5. on
+259. 5. through
+259. 5. over
+16. 1. subjective
+16. 1. inferior
+16. 1. objective
+16. 1. inductive
+16. 2. subjective
+16. 2. inferior
+16. 2. objective
+16. 2. inductive
+16. 3. subjective
+16. 3. inferior
+16. 3. objective
+16. 3. inductive
+16. 4. subjective
+16. 4. inferior
+16. 4. objective
+16. 4. inductive
+16. 5. subjective
+16. 5. inferior
+16. 5. objective
+16. 5. inductive
+570. 1. food
+570. 1. meal
+570. 1. snack
+570. 1. diet
+570. 2. food
+570. 2. meal
+570. 2. snack
+570. 2. diet
+570. 3. food
+570. 3. meal
+570. 3. snack
+570. 3. diet
+570. 4. food
+570. 4. meal
+570. 4. snack
+570. 4. diet
+570. 5. food
+570. 5. meal
+570. 5. snack
+570. 5. diet
+20. 1. except
+20. 1. without
+20. 1. as
+20. 1. after
+20. 2. except
+20. 2. without
+20. 2. as
+20. 2. after
+20. 3. except
+20. 3. without
+20. 3. as
+20. 3. after
+20. 4. except
+20. 4. without
+20. 4. as
+20. 4. after
+20. 5. except
+20. 5. without
+20. 5. as
+20. 5. after
+32. 1. is
+32. 1. need
+32. 1. must
+32. 1. requires
+32. 2. is
+32. 2. need
+32. 2. must
+32. 2. requires
+32. 3. is
+32. 3. need
+32. 3. must
+32. 3. requires
+32. 4. is
+32. 4. need
+32. 4. must
+32. 4. requires
+32. 5. is
+32. 5. need
+32. 5. must
+32. 5. requires
+1185. 1. if
+1185. 1. whether
+1185. 1. thus
+1185. 1. that
+1185. 2. if
+1185. 2. whether
+1185. 2. thus
+1185. 2. that
+1185. 3. if
+1185. 3. whether
+1185. 3. thus
+1185. 3. that
+1185. 4. if
+1185. 4. whether
+1185. 4. thus
+1185. 4. that
+371. 1. However
+371. 1. Therefore
+371. 1. Consequently
+371. 1. While
+371. 2. However
+371. 2. Therefore
+371. 2. Consequently
+371. 2. While
+371. 3. However
+371. 3. Therefore
+371. 3. Consequently
+371. 3. While
+371. 4. However
+371. 4. Therefore
+371. 4. Consequently
+371. 4. While
+371. 5. However
+371. 5. Therefore
+371. 5. Consequently
+371. 5. While
+371. 6. However
+371. 6. Therefore
+371. 6. Consequently
+371. 6. While
+371. 7. However
+371. 7. Therefore
+371. 7. Consequently
+371. 7. While
+130. 1. had found
+130. 1. are found
+130. 1. were found
+130. 1. have found
+130. 2. had found
+130. 2. are found
+130. 2. were found
+130. 2. have found
+130. 3. had found
+130. 3. are found
+130. 3. were found
+130. 3. have found
+130. 4. had found
+130. 4. are found
+130. 4. were found
+130. 4. have found
+130. 5. had found
+130. 5. are found
+130. 5. were found
+130. 5. have found
+668. 1. rain
+668. 1. dust
+668. 1. lava
+668. 1. snow
+668. 2. rain
+668. 2. dust
+668. 2. lava
+668. 2. snow
+668. 3. rain
+668. 3. dust
+668. 3. lava
+668. 3. snow
+670. 1. standings
+670. 1. classes
+670. 1. credits
+670. 1. kitchen
+670. 2. standings
+670. 2. classes
+670. 2. credits
+670. 2. kitchen
+670. 3. standings
+670. 3. classes
+670. 3. credits
+670. 3. kitchen
+670. 4. standings
+670. 4. classes
+670. 4. credits
+670. 4. kitchen
+670. 5. standings
+670. 5. classes
+670. 5. credits
+670. 5. kitchen
+1328. 1. factors
+1328. 1. standards
+1328. 1. objects
+1328. 1. items
+1328. 2. factors
+1328. 2. standards
+1328. 2. objects
+1328. 2. items
+1328. 3. factors
+1328. 3. standards
+1328. 3. objects
+1328. 3. items
+1328. 4. factors
+1328. 4. standards
+1328. 4. objects
+1328. 4. items
+222. 1. prehistoric
+222. 1. common
+222. 1. true
+222. 1. harsh
+222. 2. prehistoric
+222. 2. common
+222. 2. true
+222. 2. harsh
+222. 3. prehistoric
+222. 3. common
+222. 3. true
+222. 3. harsh
+222. 4. prehistoric
+222. 4. common
+222. 4. true
+222. 4. harsh
+174. 1. dosage
+174. 1. techniques
+174. 1. treatments
+174. 1. medicine
+174. 2. dosage
+174. 2. techniques
+174. 2. treatments
+174. 2. medicine
+174. 3. dosage
+174. 3. techniques
+174. 3. treatments
+174. 3. medicine
+864. 1. of
+864. 1. about
+864. 1. to
+864. 1. for
+864. 2. of
+864. 2. about
+864. 2. to
+864. 2. for
+864. 3. of
+864. 3. about
+864. 3. to
+864. 3. for
+864. 4. of
+864. 4. about
+864. 4. to
+864. 4. for
+665. 1. overturned the fascinating image
+665. 1. have its modern impression
+665. 1. had its 18th century roots
+665. 1. came to an abrupt halt
+665. 2. overturned the fascinating image
+665. 2. have its modern impression
+665. 2. had its 18th century roots
+665. 2. came to an abrupt halt
+665. 3. overturned the fascinating image
+665. 3. have its modern impression
+665. 3. had its 18th century roots
+665. 3. came to an abrupt halt
+665. 4. overturned the fascinating image
+665. 4. have its modern impression
+665. 4. had its 18th century roots
+665. 4. came to an abrupt halt
+665. 5. overturned the fascinating image
+665. 5. have its modern impression
+665. 5. had its 18th century roots
+665. 5. came to an abrupt halt
+223. 1. professional
+223. 1. flexible
+223. 1. parochial
+223. 1. descriptive
+223. 2. professional
+223. 2. flexible
+223. 2. parochial
+223. 2. descriptive
+223. 3. professional
+223. 3. flexible
+223. 3. parochial
+223. 3. descriptive
+252. 1. strategies
+252. 1. positions
+252. 1. structures
+252. 1. budgets
+252. 2. strategies
+252. 2. positions
+252. 2. structures
+252. 2. budgets
+252. 3. strategies
+252. 3. positions
+252. 3. structures
+252. 3. budgets
+252. 4. strategies
+252. 4. positions
+252. 4. structures
+252. 4. budgets
+257. 1. wholesome
+257. 1. total
+257. 1. portion
+257. 1. worth
+257. 2. wholesome
+257. 2. total
+257. 2. portion
+257. 2. worth
+257. 3. wholesome
+257. 3. total
+257. 3. portion
+257. 3. worth
+1224. 1. in the future
+1224. 1. ever before
+1224. 1. on one side
+1224. 1. in the past
+1224. 2. in the future
+1224. 2. ever before
+1224. 2. on one side
+1224. 2. in the past
+1224. 3. in the future
+1224. 3. ever before
+1224. 3. on one side
+1224. 3. in the past
+1224. 4. in the future
+1224. 4. ever before
+1224. 4. on one side
+1224. 4. in the past
+1224. 5. in the future
+1224. 5. ever before
+1224. 5. on one side
+1224. 5. in the past
+117. 1. related
+117. 1. compared
+117. 1. concentrated
+117. 1. corresponded
+117. 2. related
+117. 2. compared
+117. 2. concentrated
+117. 2. corresponded
+117. 3. related
+117. 3. compared
+117. 3. concentrated
+117. 3. corresponded
+1272. 1. cheerful
+1272. 1. restful
+1272. 1. meaningful
+1272. 1. painful
+1272. 2. cheerful
+1272. 2. restful
+1272. 2. meaningful
+1272. 2. painful
+1272. 3. cheerful
+1272. 3. restful
+1272. 3. meaningful
+1272. 3. painful
+1272. 4. cheerful
+1272. 4. restful
+1272. 4. meaningful
+1272. 4. painful
+105. 1. works
+105. 1. purviews
+105. 1. permissions
+105. 1. responsibilities
+105. 2. works
+105. 2. purviews
+105. 2. permissions
+105. 2. responsibilities
+105. 3. works
+105. 3. purviews
+105. 3. permissions
+105. 3. responsibilities
+105. 4. works
+105. 4. purviews
+105. 4. permissions
+105. 4. responsibilities
