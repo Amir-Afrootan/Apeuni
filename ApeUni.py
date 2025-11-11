@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import ElementClickInterceptedException, TimeoutException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
@@ -23,26 +23,67 @@ driver = webdriver.Edge(service=service, options=edge_options)
 # Fetch answer or dropdowns
 # ---------------------------
 def fetch_answer(url, mode, output_file):
-	selectors = {1:"p.Answer__Paragraph-h0b1cq-4",2:"p.Answer__AnswerText-h0b1cq-0",
-				 3:"p[class^='Answer__Paragraph-']",4:".fupsWk div:nth-child(2) p span:nth-child(even)"}
+	selectors = {
+		1: "span.WordContainer-sc-126h18d",  # ✅ اصلاح شده برای WFD
+		2: "p.Answer__AnswerText-h0b1cq-0",
+		3: "p[class^='Answer__Paragraph-']",
+		4: ".fupsWk div:nth-child(2) p span:nth-child(even)"
+	}
+
 	try:
 		driver.get(url)
-		if mode != 5:  # Modes 1-4
-			for _ in range(6):
+
+		# -------------------------------------------------- Mode 1 (WFD)
+		if mode == 1:
+			sleep(2)
+			btn = driver.find_element(By.CSS_SELECTOR, "button.ant-switch")
+			btn.click()
+
+			sleep(0.5)
+			spans = driver.find_elements(By.CSS_SELECTOR, "span.iDEUQt")
+			text = " ".join(s.text.strip() for s in spans if s.text.strip())
+			if text:
+				qid = url.rstrip("/").split("/")[-1]
+				line = f"{qid}. {text}"
+				with open(output_file, "a", encoding="utf-8") as f:
+					f.write(line + "\n")
+				print(line)
+				return line
+
+			print(f"[No Answer] {url}")
+			return None
+
+		# -------------------------------------------------- Modes 2–4
+		elif mode in [2, 3, 4]:
+			for _ in range(4):
 				try:
 					btn = driver.find_element(By.CSS_SELECTOR, "button.ant-switch")
-					if btn.get_attribute("aria-checked")=="false": btn.click()
+					if btn.get_attribute("aria-checked") == "false":
+						driver.execute_script("arguments[0].scrollIntoView(true);", btn)
+						sleep(0.1)
+						btn.click()
 					break
-				except: continue
+				except:
+					sleep(0.5)
+					continue
+
 			css = selectors.get(mode)
-			if not css: return None
-			for _ in range(40):
+			for _ in range(15):
 				elems = driver.find_elements(By.CSS_SELECTOR, css)
 				if elems:
 					text = " ".join(e.text.strip() for e in elems if e.text.strip())
-					if text: return f"{url.rstrip('/').split('/')[-1]}. {text}"
+					if text:
+						qid = url.rstrip("/").split("/")[-1]
+						line = f"{qid}. {text}"
+						with open(output_file, "a", encoding="utf-8") as f:
+							f.write(line + "\n")
+						print(line)
+						return line
+				sleep(0.15)
+			print(f"[No Answer] {url}")
 			return None
-		############################################################### Mode 5 dropdown
+
+		# -------------------------------------------------- Mode 5 (بدون تغییر)
 		else:
 			drops = driver.find_elements(By.CSS_SELECTOR, "div.ant-select")
 			if not drops:
@@ -71,31 +112,49 @@ def fetch_answer(url, mode, output_file):
 				print("\n".join(lines_to_write))
 
 			return True
+
 	except Exception as e:
 		print(f"[Error] {url}: {e}")
 		return None
+
 
 # ---------------------------
 # Main program
 # ---------------------------
 def main():
 	mode = input("Enter 1:WFD  2:ASQ  3:RS  4:FIB_WR  5:FIB_WR dropdown => ").strip()
-	if mode not in ["1","2","3","4","5"]: print("❌ Only 1–5 are valid."); driver.quit(); return
-	mode=int(mode)
-	paths = {1:(r"WFD\URL 2025-11.txt",r"WFD\Output.txt"),
-			 2:(r"ASQ\URL 2025-10.txt",r"ASQ\Output.txt"),
-			 3:(r"RS\URL 2025-10.txt",r"RS\Output.txt"),
-			 4:(r"FIB_WR\URL 2025-11.txt",r"FIB_WR\Output.txt"),
-			 5:(r"FIB_WR\URL 2025-11.txt",r"D:\Programming\Python\Apeuni\FIB_WR\FIB_WR_Output_Dropdowns.txt")}
+	if mode not in ["1", "2", "3", "4", "5"]:
+		print("❌ Only 1–5 are valid.")
+		driver.quit()
+		return
+
+	mode = int(mode)
+	paths = {
+		1: (r"WFD\URL 2025-11.txt", r"WFD\Output.txt"),
+		2: (r"ASQ\URL 2025-10.txt", r"ASQ\Output.txt"),
+		3: (r"RS\URL 2025-10.txt", r"RS\Output.txt"),
+		4: (r"FIB_WR\URL 2025-11.txt", r"FIB_WR\Output.txt"),
+		5: (r"FIB_WR\URL 2025-11.txt", r"FIB_WR\FIB_WR_Output_Dropdowns.txt")
+	}
+
 	input_file, output_file = paths[mode]
-	if not os.path.exists(input_file): print(f"❌ Input file not found: {input_file}"); driver.quit(); return
-	if os.path.exists(output_file): os.remove(output_file)
-	with open(input_file,"r",encoding="utf-8") as f: links=[line.strip() for line in f if line.strip()]
+	if not os.path.exists(input_file):
+		print(f"❌ Input file not found: {input_file}")
+		driver.quit()
+		return
+	if os.path.exists(output_file):
+		os.remove(output_file)
+
+	with open(input_file, "r", encoding="utf-8") as f:
+		links = [line.strip() for line in f if line.strip()]
+
 	for url in links:
 		print(f"Fetching: {url}")
 		fetch_answer(url, mode, output_file)
+
 	driver.quit()
 	print("✅ Done! Saved to", os.path.abspath(output_file))
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
 	main()
