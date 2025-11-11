@@ -85,6 +85,7 @@ def fetch_answer(url, mode, output_file):
 
 		# -------------------------------------------------- Mode 5 (بدون تغییر)
 		else:
+			sleep(2)
 			drops = driver.find_elements(By.CSS_SELECTOR, "div.ant-select")
 			if not drops:
 				print(f"[Warning] No dropdown found for {url}")
