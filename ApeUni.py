@@ -143,8 +143,8 @@ def main():
 		print(f"❌ Input file not found: {input_file}")
 		driver.quit()
 		return
-	if os.path.exists(output_file):
-		os.remove(output_file)
+	# if os.path.exists(output_file):
+	# 	os.remove(output_file)
 
 	with open(input_file, "r", encoding="utf-8") as f:
 		links = [line.strip() for line in f if line.strip()]

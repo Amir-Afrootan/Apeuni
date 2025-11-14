@@ -1810,3 +1810,23 @@
 222. 4. share
 222. 4. abide
 222. 4. conform
+579. 1. It
+579. 1. What
+579. 1. One
+579. 1. That
+579. 2. highlights
+579. 2. starts
+579. 2. marks
+579. 2. protrudes
+579. 3. hesitate
+579. 3. ought
+579. 3. turn
+579. 3. tend
+579. 4. whereas
+579. 4. whatever
+579. 4. if
+579. 4. unless
+579. 5. has been surveyed
+579. 5. had surveyed
+579. 5. be surveyed
+579. 5. was surveyed
