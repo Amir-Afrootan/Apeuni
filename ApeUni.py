@@ -83,7 +83,9 @@ def fetch_answer(url, mode, output_file):
 			print(f"[No Answer] {url}")
 			return None
 
-		# -------------------------------------------------- Mode 5 (بدون تغییر)
+		# ---------------------------
+		# Mode 5
+		# ---------------------------
 		else:
 			sleep(2)
 			drops = driver.find_elements(By.CSS_SELECTOR, "div.ant-select")
