@@ -83,9 +83,7 @@ def fetch_answer(url, mode, output_file):
 			print(f"[No Answer] {url}")
 			return None
 
-		# ---------------------------
-		# Mode 5
-		# ---------------------------
+		# -------------------------------------------------- Modes 5
 		else:
 			sleep(2)
 			drops = driver.find_elements(By.CSS_SELECTOR, "div.ant-select")
@@ -119,7 +117,6 @@ def fetch_answer(url, mode, output_file):
 	except Exception as e:
 		print(f"[Error] {url}: {e}")
 		return None
-
 
 # ---------------------------
 # Main program
