@@ -1,0 +1,71 @@
+{
+  "top": [
+    {
+      "word": "superiority",
+      "mistakes": 4
+    },
+    {
+      "word": "hierarchy",
+      "mistakes": 4
+    },
+    {
+      "word": "repetition",
+      "mistakes": 4
+    },
+    {
+      "word": "flakes",
+      "mistakes": 3
+    },
+    {
+      "word": "deviousness",
+      "mistakes": 3
+    },
+    {
+      "word": "numerous",
+      "mistakes": 2
+    },
+    {
+      "word": "delivered",
+      "mistakes": 2
+    },
+    {
+      "word": "potentially",
+      "mistakes": 2
+    },
+    {
+      "word": "curious",
+      "mistakes": 2
+    },
+    {
+      "word": "incredibly",
+      "mistakes": 2
+    }
+  ],
+  "all": {
+    "numerous": 2,
+    "superiority": 4,
+    "hierarchy": 4,
+    "basis": 1,
+    "delivered": 2,
+    "potentially": 2,
+    "aluminium": 1,
+    "fractures": 1,
+    "flakes": 3,
+    "depictions": 1,
+    "repetition": 4,
+    "curious": 2,
+    "drainage": 1,
+    "restricted": 1,
+    "incredibly": 2,
+    "floor": 1,
+    "liquids": 2,
+    "exposed": 1,
+    "robust": 1,
+    "spate": 1,
+    "accused": 1,
+    "affirmed": 1,
+    "deviousness": 3,
+    "responsible": 1,
+    "apologized": 1
+  }
+}

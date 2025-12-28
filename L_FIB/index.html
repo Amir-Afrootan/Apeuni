@@ -32,6 +32,9 @@
 			<div class="vr mx-1"></div>
 			<a class="btn btn-link px-0" href="/?mode=ordered">Ordered</a>
 			<a class="btn btn-link px-0" href="/?mode=random">Random</a>
+			<div class="vr mx-1"></div>
+			<a class="small" href="/?mode=mistakes">Mistakes Only</a>
+
 		</div>
 
 		<!-- Form -->
@@ -47,6 +50,20 @@
 				<!-- <strong>Meaning:</strong> {{ meaning }} -->
 			</div>
 		</form>
+		<div class="mt-4 p-3 border rounded bg-light shadow">
+			<b>Top Misspelled Words</b>
+
+			{% if top_mistakes and top_mistakes|length > 0 %}
+			<ol class="mt-2 mb-0">
+				{% for item in top_mistakes %}
+				<li><b>{{ item.word }}</b> — {{ item.mistakes }} mistake(s)</li>
+				{% endfor %}
+
+			</ol>
+			{% else %}
+			<div class="text-muted mt-2">No mistakes yet. ✅</div>
+			{% endif %}
+		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
