@@ -1,71 +1,74 @@
 {
   "top": [
     {
-      "word": "superiority",
-      "mistakes": 4
-    },
-    {
-      "word": "hierarchy",
-      "mistakes": 4
-    },
-    {
       "word": "repetition",
-      "mistakes": 4
+      "mistakes": 8
+    },
+    {
+      "word": "superiority",
+      "mistakes": 5
+    },
+    {
+      "word": "potentially",
+      "mistakes": 3
     },
     {
       "word": "flakes",
       "mistakes": 3
     },
     {
-      "word": "deviousness",
+      "word": "incredibly",
       "mistakes": 3
     },
     {
-      "word": "numerous",
+      "word": "hierarchy",
       "mistakes": 2
     },
     {
-      "word": "delivered",
+      "word": "accused",
       "mistakes": 2
     },
     {
-      "word": "potentially",
+      "word": "deviousness",
       "mistakes": 2
     },
     {
-      "word": "curious",
+      "word": "responsible",
       "mistakes": 2
     },
     {
-      "word": "incredibly",
+      "word": "apologized",
       "mistakes": 2
     }
   ],
   "all": {
-    "numerous": 2,
-    "superiority": 4,
-    "hierarchy": 4,
-    "basis": 1,
-    "delivered": 2,
-    "potentially": 2,
-    "aluminium": 1,
-    "fractures": 1,
+    "numerous": 0,
+    "superiority": 5,
+    "hierarchy": 2,
+    "basis": 0,
+    "delivered": 0,
+    "potentially": 3,
+    "aluminium": 0,
+    "fractures": 0,
     "flakes": 3,
-    "depictions": 1,
-    "repetition": 4,
-    "curious": 2,
-    "drainage": 1,
-    "restricted": 1,
-    "incredibly": 2,
-    "floor": 1,
-    "liquids": 2,
+    "depictions": 0,
+    "repetition": 8,
+    "curious": 1,
+    "drainage": 0,
+    "restricted": 0,
+    "incredibly": 3,
+    "floor": 0,
+    "liquids": 1,
     "exposed": 1,
     "robust": 1,
     "spate": 1,
-    "accused": 1,
-    "affirmed": 1,
-    "deviousness": 3,
-    "responsible": 1,
-    "apologized": 1
+    "accused": 2,
+    "affirmed": 0,
+    "deviousness": 2,
+    "responsible": 2,
+    "apologized": 2,
+    "responsibilities": 1,
+    "integrity": 0,
+    "fake": 1
   }
 }
