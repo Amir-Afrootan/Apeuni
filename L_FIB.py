@@ -1,22 +1,44 @@
+import json
+import os
 import random
 import pyttsx3
+from deep_translator import GoogleTranslator
 
-FILE_PATH = r"L_FIB\Output 2025-12.txt"
-REQUIRED_STREAK = 2  # must be correct this many times in a row to master
+WORDS_FILE = r"L_FIB\Output 2025-12.txt"
+CACHE_FILE = r"L_FIB\Output 2025-12.meanings.json"
+
+REQUIRED_STREAK = 2
 
 
 def load_words(path):
     with open(path, "r", encoding="utf-8") as f:
         words = [line.strip() for line in f if line.strip()]
-    # Optional: remove duplicates while keeping order
+
+    # remove duplicates while keeping order (optional)
     seen = set()
-    unique_words = []
+    unique = []
     for w in words:
         lw = w.lower()
         if lw not in seen:
             seen.add(lw)
-            unique_words.append(w)
-    return unique_words
+            unique.append(w)
+    return unique
+
+
+def load_cache(path):
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {str(k).lower(): str(v) for k, v in data.items()}
+    except Exception:
+        return {}
+
+
+def save_cache(path, cache):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
 def speak(text):
@@ -32,60 +54,65 @@ def normalize(text):
     return text.strip().lower()
 
 
-def print_stats(wrong_counts, total_words):
-    print("\n=== Mistake Stats ===")
-    # show only words with mistakes, sorted by most mistakes
-    items = [(w, c) for w, c in wrong_counts.items() if c > 0]
-    if not items:
-        print("No mistakes so far. ✅")
-        return
+def translate_to_fa(word, cache):
+    key = word.lower()
+    if key in cache and cache[key].strip():
+        return cache[key]
 
-    items.sort(key=lambda x: x[1], reverse=True)
-    for w, c in items:
-        print(f"{w}: {c} mistake(s)")
-    print(f"Words with at least 1 mistake: {len(items)}/{total_words}")
+    try:
+        fa = GoogleTranslator(source="en", target="fa").translate(word)
+        if fa:
+            cache[key] = fa
+            save_cache(CACHE_FILE, cache)
+            return fa
+    except Exception:
+        return None
+
+    return None
 
 
 def main():
-    words = load_words(FILE_PATH)
+    words = load_words(WORDS_FILE)
     if not words:
-        print("❌ No words found in file!")
+        print("❌ No words found in words file!")
         return
 
-    print("=== English Spelling Trainer (2-in-a-row + stats) ===")
-    print(f"Loaded {len(words)} words from: {FILE_PATH}")
-    print("Rules: You must spell the current word correctly 2 times in a row to master it.")
-    print("Commands:")
+    cache = load_cache(CACHE_FILE)
+
+    print("=== English Spelling Trainer ===")
+    print("Choose training mode:")
+    print("1 - Ordered (from file order)")
+    print("2 - Random")
+    mode = input("Enter 1 or 2: ").strip()
+    if mode not in ("1", "2"):
+        mode = "1"
+    ordered_mode = (mode == "1")
+
+    print("\nCommands:")
     print("  -r      → repeat pronunciation")
-    print("  -s      → show word")
-    print("  -stats  → show mistake stats")
+    print("  -s      → show Persian meaning (fetch online if missing)")
     print("  -q      → quit")
-    print("-" * 70)
+    print("-" * 60)
 
-    wrong_counts = {w: 0 for w in words}
-    streak = {w: 0 for w in words}  # consecutive correct count for each word
+    streak = {w: 0 for w in words}
     mastered = set()
-
     total_attempts = 0
     last_word = None
 
-    def progress_text():
-        return f"Progress: {len(mastered)}/{len(words)}"
-
     while len(mastered) < len(words):
-        # pick among not-mastered words
         active = [w for w in words if w not in mastered]
-        word = random.choice(active)
 
-        # avoid immediate repeat if possible
-        if len(active) > 1:
-            while word == last_word:
-                word = random.choice(active)
+        # select word
+        if ordered_mode:
+            word = active[0]
+        else:
+            word = random.choice(active)
+            if len(active) > 1:
+                while word == last_word:
+                    word = random.choice(active)
         last_word = word
 
-        # Start this word session
-        print(f"\n{progress_text()}")
-
+        print(f"\nProgress: {len(mastered)}/{len(words)}")
         speak(word)
 
         while True:
@@ -97,48 +124,46 @@ def main():
                 continue
 
             if cmd == "-s":
-                print(f"Word: {word}")
-                continue
-
-            if cmd == "-stats":
-                print_stats(wrong_counts, len(words))
+                meaning = translate_to_fa(word, cache)
+                if meaning:
+                    print(f"{word} | {meaning}")
+                else:
+                    print(f"{word} | (meaning not available right now)")
                 continue
 
             if cmd == "-q":
                 print("\nSession ended.")
-                print(progress_text())
-                print(f"Total attempts: {total_attempts}")
-                print_stats(wrong_counts, len(words))
                 return
 
-            # Real attempt
+            # real attempt
             total_attempts += 1
 
             if normalize(user_input) == normalize(word):
                 streak[word] += 1
 
                 if streak[word] >= REQUIRED_STREAK:
+                    print(f"✅ Correct! ({streak[word]}/{REQUIRED_STREAK}) → Mastered")
                     mastered.add(word)
-                    print(f"✅ Correct! ({streak[word]}/{REQUIRED_STREAK}) → Mastered! Moving on.")
                     break
                 else:
-                    # Need one more correct in a row
+                    # ask again for the same word (2-in-a-row rule)
                     print(f"✅ Correct! ({streak[word]}/{REQUIRED_STREAK})")
-                    print("Type it again to confirm (must be correct twice in a row).")
-                    speak(word)  # play again for the confirmation attempt
+                    speak(word)
                     continue
-
             else:
-                wrong_counts[word] += 1
-                streak[word] = 0  # reset streak on mistake
-                print(f"❌ Incorrect! Correct spelling: {word}")
+                streak[word] = 0
+                meaning = translate_to_fa(word, cache)
+
+                if meaning:
+                    print(f"❌ Incorrect! Correct spelling: {word} | {meaning}")
+                else:
+                    print(f"❌ Incorrect! Correct spelling: {word} | (meaning not available)")
+
                 print("Try again (streak reset).")
-                speak(word)  # replay sound after mistake
+                speak(word)
                 continue
 
-    print("\n🎉 Perfect! You mastered all words (2 correct in a row each).")
-    print(f"Total attempts: {total_attempts}")
-    print_stats(wrong_counts, len(words))
+    print("\n🎉 Perfect! You mastered all words.")
 
 
 if __name__ == "__main__":
