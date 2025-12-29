@@ -30,7 +30,7 @@
 			<button type="button" class="btn btn-primary" onclick="speakWord()"> <i class="bi bi-volume-down-fill"></i> Speak</button>
 			<button type="button" class="btn btn-outline-secondary" onclick="toggleShowMeaning()"> Meaning </button>
 			<div class="vr mx-1"></div>
-			<a class="btn btn-link px-0" href="/?mode=ordered">Ordered</a>
+			<a class="btn btn-link px-0" href="/?mode=ordered&start=1">Ordered</a>
 			<a class="btn btn-link px-0" href="/?mode=random">Random</a>
 			<a class="small" href="/?mode=mistakes">Mistakes Only</a>
 		</div>
@@ -45,9 +45,9 @@
 			</div>
 			<div class="form-text">
 				{% if message %}
-				<div class="mt-2"> {{ message|safe }} </div>
+					{{ message|safe }}
 				{% endif %}
-				<!-- <strong>Meaning:</strong> {{ meaning }} -->
+				{{meaning}}
 			</div>
 		</form>
 		<div class="mt-4 p-3 border rounded bg-light shadow">

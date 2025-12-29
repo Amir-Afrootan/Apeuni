@@ -3,6 +3,7 @@ import json
 import random
 from flask import Flask, request, session, redirect, url_for, render_template
 from deep_translator import GoogleTranslator
+from markupsafe import escape
 
 # =============================
 # Paths & App Config
@@ -70,7 +71,7 @@ def translate_word(word):
 			cache[key] = fa
 			save_cache(cache)
 			return fa
-	except:
+	except Exception:
 		pass
 
 	return "(meaning not available)"
@@ -129,54 +130,44 @@ def add_mistake(word, delta=1):
 	cur = int(mistakes_all.get(key, 0))
 	cur += int(delta)
 
-	# ✅ clamp (do not go negative)
+	# clamp to [0..]
 	if cur < 0:
 		cur = 0
 
 	mistakes_all[key] = cur
 	save_mistakes_all(mistakes_all)
 
+def get_top_mistakes(top_n=None):
+    data = load_mistakes_all()
+    items = sorted(data.items(), key=lambda x: x[1], reverse=True)
 
-def get_top_mistakes(top_n=10):
-	data = load_mistakes_all()
-	items = sorted(data.items(), key=lambda x: x[1], reverse=True)
-	return [{"word": w, "mistakes": c} for w, c in items[:top_n] if c > 0]
+    rows = [{"word": w, "mistakes": c} for w, c in items if c > 0]
+
+    if top_n is None:
+        return rows  # ✅ all
+    return rows[:top_n]
 
 
 # =============================
 # Mistakes-mode selection logic (circular traversal)
 # =============================
 
-def any_positive_mistakes():
-	data = load_mistakes_all()
-	return any(int(v) > 0 for v in data.values())
-
-
 def get_next_mistake_word():
-	"""
-	Circularly walks through mistakes_all keys and returns the next word with count>0.
-	Keeps pointer in session['mistake_pos'].
-	Returns "" if none positive.
-	"""
 	mistakes_all = load_mistakes_all()
 	if not mistakes_all:
 		return ""
 
-	# fixed order of traversal: order in file (dict insertion order)
 	keys = list(mistakes_all.keys())
 	if not keys:
 		return ""
 
-	# start position
 	pos = int(session.get("mistake_pos", 0))
 	pos = pos % len(keys)
 
-	# scan at most len(keys) to find a positive count
 	for _ in range(len(keys)):
 		w = keys[pos]
 		cnt = int(mistakes_all.get(w, 0))
 		if cnt > 0:
-			# keep pos at the selected word (so after correct we can move to next)
 			session["mistake_pos"] = pos
 			return w
 		pos = (pos + 1) % len(keys)
@@ -217,30 +208,62 @@ def index():
 		session["last_word"] = ""
 		session["word"] = WORDS[0]
 		session["mistake_pos"] = 0
-
-	# allow mode switch via query (no forced reset here)
+		session["ordered_start_applied"] = None  # NEW: remember last start applied
+	
+	# restart when we reach end
+	restart_q = request.args.get("restart")
+	if restart_q == "1":
+		session["mastered"] = []
+		session["streak"] = {}
+		session["last_word"] = ""
+		session["word"] = WORDS[0] if WORDS else ""
+		session["mistake_pos"] = 0
+		
+	# allow mode switch via query (no reset)
 	mode_q = request.args.get("mode")
 	if mode_q in ("ordered", "random", "mistakes"):
 		session["mode"] = mode_q
-		# NOTE: we keep progress; no reset
 
 	mode = session.get("mode", "ordered")
+
+	# =============================
+	# NEW: start=N (only affects ordered mode)
+	# =============================
+	start_q = request.args.get("start")
+	start_index = None
+	if start_q is not None and str(start_q).isdigit():
+		start_index = max(0, int(start_q))
+
+	if mode == "ordered" and start_index is not None:
+		# Apply only if changed (avoid re-adding on every refresh)
+		last_applied = session.get("ordered_start_applied")
+		if last_applied != start_index:
+			mastered = set(session.get("mastered", []))
+			# Mark first N words as mastered for this session
+			for w in WORDS[:start_index]:
+				mastered.add(w)
+			session["mastered"] = list(mastered)
+			session["ordered_start_applied"] = start_index
+
+			# If current word is within skipped range, force reselection
+			cur_word = session.get("word", "")
+			if cur_word and cur_word in WORDS[:start_index]:
+				session["word"] = ""  # force pick from active
+
 	mastered = set(session.get("mastered", []))
 	last_word = session.get("last_word", "")
 
-	# ---- Mistakes mode word selection ----
+	# ---- Mistakes mode ----
 	if mode == "mistakes":
-		# pick next positive-count mistake word (circular)
 		word = session.get("word", "")
-		# If current word is empty or its count is no longer positive, find next
+
 		mistakes_all = load_mistakes_all()
 		if (not word) or (int(mistakes_all.get(word.lower(), 0)) <= 0):
 			word = get_next_mistake_word()
 			session["word"] = word
 
 		if not word:
-			# no positive mistakes left
-			top_mistakes = get_top_mistakes(10)
+			top_mistakes = get_top_mistakes()
 			message = "<div class='muted'>🎉 No remaining mistakes (positive counts). ✅ Switch to Ordered/Random to continue.</div>"
 			return render_template(
 				"index.html",
@@ -258,15 +281,15 @@ def index():
 		meaning = translate_word(word)
 		autoplay = session.pop("autoplay", False)
 		message = session.pop("message", "")
-		top_mistakes = get_top_mistakes(10)
+		top_mistakes = get_top_mistakes()
 
 		return render_template(
 			"index.html",
 			word=word,
 			meaning=meaning,
 			message=message,
-			mastered=0,             # not used in mistakes loop
-			total=0,                # not used in mistakes loop
+			mastered=0,
+			total=0,
 			req=REQUIRED_STREAK,
 			mode_label="Mistakes Only",
 			autoplay=autoplay,
@@ -287,7 +310,7 @@ def index():
 	meaning = translate_word(word)
 	autoplay = session.pop("autoplay", False)
 	message = session.pop("message", "")
-	top_mistakes = get_top_mistakes(10)
+	top_mistakes = get_top_mistakes()
 
 	mode_label = "Ordered" if mode == "ordered" else "Random"
 
@@ -325,16 +348,14 @@ def answer():
 	if answer_text == word.lower():
 
 		if mode == "mistakes":
-			# In mistakes mode: decrement counter by 1 (clamped to 0), then move to next word
+			# Decrement counter by 1 (clamped to 0), then move to next
 			add_mistake(word, delta=-1)
-			session["message"] = "<div class='ok'>✅ Correct! (mistake count -1)</div>"
+			session["message"] = "<span class='ok'>✅ Correct! (mistake count -1)</span>"
 
-			# move pointer forward and choose next positive word on next page
 			advance_mistake_pos()
 			session["word"] = ""  # force next selection
 			return redirect(url_for("index"))
 
-		# Normal modes: streak logic
 		mastered = set(session.get("mastered", []))
 		streak = session.get("streak", {})
 
@@ -343,7 +364,7 @@ def answer():
 		if streak[word] >= REQUIRED_STREAK:
 			mastered.add(word)
 			session["mastered"] = list(mastered)
-			session["message"] = "<div class='ok'>✅ Correct! Mastered | {meaning} </div>"
+			session["message"] = "<span class='ok'>✅ Correct! Mastered.</span>"
 
 			active = [w for w in WORDS if w not in mastered]
 			if active:
@@ -351,12 +372,12 @@ def answer():
 				session["word"] = next_word
 				session["last_word"] = next_word
 		else:
-			session["message"] = f"<div class='ok'>✅ Correct! ({streak[word]}/{REQUIRED_STREAK})</div>"
+			session["message"] = f"<span class='ok'>✅ Correct! ({streak[word]}/{REQUIRED_STREAK})</span>"
 
 		session["streak"] = streak
 		return redirect(url_for("index"))
 
-	# ❌ Wrong (all modes): increment counter + reset streak
+	# ❌ Wrong (all modes): increment counter
 	if mode != "mistakes":
 		streak = session.get("streak", {})
 		streak[word] = 0
@@ -365,13 +386,13 @@ def answer():
 	add_mistake(word, delta=+1)
 
 	meaning = translate_word(word)
+	safe_answer = escape(answer_text)
+
 	session["message"] = (
-		f"<div class='mt-1'><b>Correct spelling:</b> <span class='text-success'>{word}</span> | <span class='fa'>{meaning}</span></div>"
-		f"<div class='mt-1'><b>❌ Your answer: </b> <code>{answer_text}</code></div>"
+		f"<div class=''><b>❌ Your answer: </b> <code>{safe_answer}</code></div>"
+		f"<span class=''><b>Correct spelling:</b> <b class='text-success'>{word}</b> | </span>"
 	)
 
-	# In mistakes mode, keep the same word (so user can try again),
-	# and since autoplay=True it will be spoken again.
 	return redirect(url_for("index"))
 
 
@@ -383,4 +404,6 @@ if __name__ == "__main__":
 	if not WORDS:
 		print("❌ No words found in Output file.")
 	else:
-		app.run(debug=True)
+		app.run(host="0.0.0.0", port=5000, debug=True)
+		# app.run(debug=True)
+

@@ -5,83 +5,142 @@
       "mistakes": 12
     },
     {
-      "word": "superiority",
-      "mistakes": 5
-    },
-    {
-      "word": "permanent",
-      "mistakes": 5
-    },
-    {
       "word": "potentially",
-      "mistakes": 4
-    },
-    {
-      "word": "flakes",
-      "mistakes": 3
-    },
-    {
-      "word": "incredibly",
-      "mistakes": 3
+      "mistakes": 5
     },
     {
       "word": "accused",
+      "mistakes": 5
+    },
+    {
+      "word": "simultaneously",
+      "mistakes": 5
+    },
+    {
+      "word": "especially",
+      "mistakes": 5
+    },
+    {
+      "word": "superiority",
+      "mistakes": 4
+    },
+    {
+      "word": "permanent",
+      "mistakes": 4
+    },
+    {
+      "word": "conspicuous",
+      "mistakes": 4
+    },
+    {
+      "word": "sedimentary",
+      "mistakes": 4
+    },
+    {
+      "word": "hygiene",
       "mistakes": 3
-    },
-    {
-      "word": "apologized",
-      "mistakes": 3
-    },
-    {
-      "word": "hierarchy",
-      "mistakes": 2
-    },
-    {
-      "word": "robust",
-      "mistakes": 2
     }
   ],
   "all": {
     "numerous": 0,
-    "superiority": 5,
-    "hierarchy": 2,
+    "superiority": 4,
+    "hierarchy": 1,
     "basis": 0,
-    "delivered": 1,
-    "potentially": 4,
+    "delivered": 0,
+    "potentially": 5,
     "aluminium": 0,
     "fractures": 0,
-    "flakes": 3,
-    "depictions": 1,
+    "flakes": 2,
+    "depictions": 0,
     "repetition": 12,
-    "curious": 1,
+    "curious": 0,
     "drainage": 0,
     "restricted": 0,
-    "incredibly": 3,
+    "incredibly": 2,
     "floor": 0,
-    "liquids": 1,
-    "exposed": 1,
-    "robust": 2,
-    "spate": 1,
-    "accused": 3,
+    "liquids": 0,
+    "exposed": 0,
+    "robust": 1,
+    "spate": 0,
+    "accused": 5,
     "affirmed": 0,
-    "deviousness": 2,
-    "responsible": 2,
-    "apologized": 3,
-    "responsibilities": 1,
+    "deviousness": 1,
+    "responsible": 1,
+    "apologized": 2,
+    "responsibilities": 0,
     "integrity": 0,
-    "fake": 1,
-    "analyzing": 1,
+    "fake": 0,
+    "analyzing": 0,
     "scandals": 1,
     "horrible": 1,
-    "minimize": 1,
+    "minimize": 0,
     "environmental": 1,
     "alternative": 1,
-    "permanent": 5,
-    "whole": 1,
-    "plain": 1,
-    "incompatible": 1,
+    "permanent": 4,
+    "whole": 0,
+    "plain": 0,
+    "incompatible": 0,
     "original": 1,
     "aspects": 1,
-    "ferry": 1
+    "ferry": 0,
+    "expectations": 0,
+    "spectacle": 2,
+    "conspicuous": 4,
+    "cemetery": 1,
+    "chambers": 0,
+    "horror": 1,
+    "laboratory": 0,
+    "sedimentary": 4,
+    "hygiene": 3,
+    "respiratory": 1,
+    "threatened": 1,
+    "carelessness": 1,
+    "atmosphere": 1,
+    "erase": 1,
+    "analyzed": 1,
+    "medicinal": 1,
+    "speculate": 1,
+    "psychological": 1,
+    "professional": 1,
+    "simultaneously": 5,
+    "receptionist": 1,
+    "habitable": 1,
+    "unusable": 2,
+    "insured": 1,
+    "compensate": 1,
+    "unstoppable": 1,
+    "nauseating": 1,
+    "fatigued": 1,
+    "exercise": 3,
+    "phototropism": 3,
+    "strategy": 1,
+    "expansion": 3,
+    "especially": 5,
+    "recession": 1,
+    "frontiers": 2,
+    "boost": 1,
+    "compliments": 1,
+    "uptake": 1,
+    "calcium": 2,
+    "electricity": 1,
+    "stressed": 1,
+    "mechanism": 3,
+    "cardiologists": 2,
+    "legitimate": 3,
+    "bargains": 1,
+    "plunge": 1,
+    "complained": 2,
+    "encouraging": 1,
+    "symptoms": 1,
+    "archeology": 2,
+    "appointed": 1,
+    "accessible": 1,
+    "academics": 2,
+    "regulations": 1,
+    "mandates": 2,
+    "different": 2,
+    "coercive": 2,
+    "cultivated": 1,
+    "mysterious": 1
   }
 }
