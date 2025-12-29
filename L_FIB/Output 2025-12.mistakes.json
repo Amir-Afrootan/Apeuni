@@ -2,15 +2,19 @@
   "top": [
     {
       "word": "repetition",
-      "mistakes": 8
+      "mistakes": 12
     },
     {
       "word": "superiority",
       "mistakes": 5
     },
     {
+      "word": "permanent",
+      "mistakes": 5
+    },
+    {
       "word": "potentially",
-      "mistakes": 3
+      "mistakes": 4
     },
     {
       "word": "flakes",
@@ -21,23 +25,19 @@
       "mistakes": 3
     },
     {
+      "word": "accused",
+      "mistakes": 3
+    },
+    {
+      "word": "apologized",
+      "mistakes": 3
+    },
+    {
       "word": "hierarchy",
       "mistakes": 2
     },
     {
-      "word": "accused",
-      "mistakes": 2
-    },
-    {
-      "word": "deviousness",
-      "mistakes": 2
-    },
-    {
-      "word": "responsible",
-      "mistakes": 2
-    },
-    {
-      "word": "apologized",
+      "word": "robust",
       "mistakes": 2
     }
   ],
@@ -46,13 +46,13 @@
     "superiority": 5,
     "hierarchy": 2,
     "basis": 0,
-    "delivered": 0,
-    "potentially": 3,
+    "delivered": 1,
+    "potentially": 4,
     "aluminium": 0,
     "fractures": 0,
     "flakes": 3,
-    "depictions": 0,
-    "repetition": 8,
+    "depictions": 1,
+    "repetition": 12,
     "curious": 1,
     "drainage": 0,
     "restricted": 0,
@@ -60,15 +60,28 @@
     "floor": 0,
     "liquids": 1,
     "exposed": 1,
-    "robust": 1,
+    "robust": 2,
     "spate": 1,
-    "accused": 2,
+    "accused": 3,
     "affirmed": 0,
     "deviousness": 2,
     "responsible": 2,
-    "apologized": 2,
+    "apologized": 3,
     "responsibilities": 1,
     "integrity": 0,
-    "fake": 1
+    "fake": 1,
+    "analyzing": 1,
+    "scandals": 1,
+    "horrible": 1,
+    "minimize": 1,
+    "environmental": 1,
+    "alternative": 1,
+    "permanent": 5,
+    "whole": 1,
+    "plain": 1,
+    "incompatible": 1,
+    "original": 1,
+    "aspects": 1,
+    "ferry": 1
   }
 }
