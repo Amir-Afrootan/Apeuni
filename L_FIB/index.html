@@ -8,7 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="">
@@ -27,7 +27,8 @@
 
 		<!-- Controls -->
 		<div class="d-flex flex-wrap gap-2 align-items-center mb-4">
-			<button type="button" class="btn btn-primary" onclick="speakWord()"> <i class="bi bi-volume-down-fill"></i> Speak</button>
+			<button type="button" class="btn btn-primary" onclick="speakWord()"> <i class="bi bi-volume-down-fill"></i>
+				Speak</button>
 			<button type="button" class="btn btn-outline-secondary" onclick="toggleShowMeaning()"> Meaning </button>
 			<div class="vr mx-1"></div>
 			<a class="btn btn-link px-0" href="/?mode=ordered&start=1">Ordered</a>
@@ -37,7 +38,8 @@
 
 		<!-- Form -->
 		<form method="POST" action="/answer" class="p-4 border rounded shadow">
-			<label for="basic-url" class="form-label">English Spelling Trainer <i class="bi bi-journal-check"></i> </label>
+			<label for="basic-url" class="form-label">English Spelling Trainer <i class="bi bi-journal-check"></i>
+			</label>
 			<div class="input-group mb-3">
 				<input id="answerInput" type="text" name="answer" class="form-control" autofocus autocomplete="off"
 					placeholder="Type the word..." />
@@ -45,13 +47,13 @@
 			</div>
 			<div class="form-text">
 				{% if message %}
-					{{ message|safe }}
+				{{ message|safe }}
 				{% endif %}
 				{{meaning}}
 			</div>
 		</form>
 		<div class="mt-4 p-3 border rounded bg-light shadow">
-			<b>Top Misspelled Words</b>
+			<b>Top Misspelled Words | {{ misspelled_words_count }}</b>
 
 			{% if top_mistakes and top_mistakes|length > 0 %}
 			<ol class="mt-2 mb-0">
@@ -99,17 +101,14 @@
 		}
 
 		document.addEventListener("DOMContentLoaded", () => {
-			// Keep focus on input after every refresh
 			const inp = document.getElementById("answerInput");
 			if (inp) inp.focus();
 
-			// Auto speak AFTER submit
-			const autoplay = {{ autoplay | tojson
-		}};
-		if (autoplay) {
-			speakWord();
-		}
-  });
+			const word = "{{ word }}";
+			if (word && word.trim().length > 0) {
+				speakWord();
+			}
+		});
 	</script>
 </body>
 
