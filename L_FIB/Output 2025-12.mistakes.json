@@ -1,58 +1,5 @@
 {
-  "top": [
-    {
-      "word": "sedimentary",
-      "mistakes": 11
-    },
-    {
-      "word": "spectacle",
-      "mistakes": 10
-    },
-    {
-      "word": "simultaneously",
-      "mistakes": 10
-    },
-    {
-      "word": "conspicuous",
-      "mistakes": 9
-    },
-    {
-      "word": "repetition",
-      "mistakes": 8
-    },
-    {
-      "word": "especially",
-      "mistakes": 8
-    },
-    {
-      "word": "phototropism",
-      "mistakes": 4
-    },
-    {
-      "word": "respiratory",
-      "mistakes": 2
-    },
-    {
-      "word": "hygiene",
-      "mistakes": 1
-    },
-    {
-      "word": "expansion",
-      "mistakes": 1
-    },
-    {
-      "word": "cardiologists",
-      "mistakes": 1
-    },
-    {
-      "word": "legitimate",
-      "mistakes": 1
-    },
-    {
-      "word": "archeology",
-      "mistakes": 1
-    }
-  ],
+  "top": [],
   "all": {
     "numerous": 0,
     "superiority": 0,
@@ -64,7 +11,7 @@
     "fractures": 0,
     "flakes": 0,
     "depictions": 0,
-    "repetition": 8,
+    "repetition": 0,
     "curious": 0,
     "drainage": 0,
     "restricted": 0,
@@ -96,15 +43,15 @@
     "aspects": 0,
     "ferry": 0,
     "expectations": 0,
-    "spectacle": 10,
-    "conspicuous": 9,
+    "spectacle": 0,
+    "conspicuous": 0,
     "cemetery": 0,
     "chambers": 0,
     "horror": 0,
     "laboratory": 0,
-    "sedimentary": 11,
-    "hygiene": 1,
-    "respiratory": 2,
+    "sedimentary": 0,
+    "hygiene": 0,
+    "respiratory": 0,
     "threatened": 0,
     "carelessness": 0,
     "atmosphere": 0,
@@ -114,7 +61,7 @@
     "speculate": 0,
     "psychological": 0,
     "professional": 0,
-    "simultaneously": 10,
+    "simultaneously": 0,
     "receptionist": 0,
     "habitable": 0,
     "unusable": 0,
@@ -124,10 +71,10 @@
     "nauseating": 0,
     "fatigued": 0,
     "exercise": 0,
-    "phototropism": 4,
+    "phototropism": 0,
     "strategy": 0,
-    "expansion": 1,
-    "especially": 8,
+    "expansion": 0,
+    "especially": 0,
     "recession": 0,
     "frontiers": 0,
     "boost": 0,
@@ -137,14 +84,14 @@
     "electricity": 0,
     "stressed": 0,
     "mechanism": 0,
-    "cardiologists": 1,
-    "legitimate": 1,
+    "cardiologists": 0,
+    "legitimate": 0,
     "bargains": 0,
     "plunge": 0,
     "complained": 0,
     "encouraging": 0,
     "symptoms": 0,
-    "archeology": 1,
+    "archeology": 0,
     "appointed": 0,
     "accessible": 0,
     "academics": 0,
