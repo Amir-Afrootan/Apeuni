@@ -1,11 +1,11 @@
 {
   "top": [
     {
-      "word": "repetition",
-      "mistakes": 10
+      "word": "sedimentary",
+      "mistakes": 11
     },
     {
-      "word": "sedimentary",
+      "word": "spectacle",
       "mistakes": 10
     },
     {
@@ -13,71 +13,43 @@
       "mistakes": 10
     },
     {
-      "word": "spectacle",
+      "word": "conspicuous",
       "mistakes": 9
     },
     {
-      "word": "conspicuous",
-      "mistakes": 7
+      "word": "repetition",
+      "mistakes": 8
     },
     {
       "word": "especially",
-      "mistakes": 7
+      "mistakes": 8
     },
     {
       "word": "phototropism",
-      "mistakes": 6
-    },
-    {
-      "word": "expansion",
-      "mistakes": 3
-    },
-    {
-      "word": "archeology",
-      "mistakes": 3
-    },
-    {
-      "word": "hygiene",
-      "mistakes": 2
-    },
-    {
-      "word": "calcium",
-      "mistakes": 2
-    },
-    {
-      "word": "cardiologists",
-      "mistakes": 2
-    },
-    {
-      "word": "legitimate",
-      "mistakes": 2
-    },
-    {
-      "word": "complained",
-      "mistakes": 2
-    },
-    {
-      "word": "potentially",
-      "mistakes": 1
-    },
-    {
-      "word": "permanent",
-      "mistakes": 1
+      "mistakes": 4
     },
     {
       "word": "respiratory",
+      "mistakes": 2
+    },
+    {
+      "word": "hygiene",
       "mistakes": 1
     },
     {
-      "word": "fatigued",
+      "word": "expansion",
       "mistakes": 1
     },
     {
-      "word": "exercise",
+      "word": "cardiologists",
       "mistakes": 1
     },
     {
-      "word": "coercive",
+      "word": "legitimate",
+      "mistakes": 1
+    },
+    {
+      "word": "archeology",
       "mistakes": 1
     }
   ],
@@ -87,12 +59,12 @@
     "hierarchy": 0,
     "basis": 0,
     "delivered": 0,
-    "potentially": 1,
+    "potentially": 0,
     "aluminium": 0,
     "fractures": 0,
     "flakes": 0,
     "depictions": 0,
-    "repetition": 10,
+    "repetition": 8,
     "curious": 0,
     "drainage": 0,
     "restricted": 0,
@@ -116,7 +88,7 @@
     "minimize": 0,
     "environmental": 0,
     "alternative": 0,
-    "permanent": 1,
+    "permanent": 0,
     "whole": 0,
     "plain": 0,
     "incompatible": 0,
@@ -124,15 +96,15 @@
     "aspects": 0,
     "ferry": 0,
     "expectations": 0,
-    "spectacle": 9,
-    "conspicuous": 7,
+    "spectacle": 10,
+    "conspicuous": 9,
     "cemetery": 0,
     "chambers": 0,
     "horror": 0,
     "laboratory": 0,
-    "sedimentary": 10,
-    "hygiene": 2,
-    "respiratory": 1,
+    "sedimentary": 11,
+    "hygiene": 1,
+    "respiratory": 2,
     "threatened": 0,
     "carelessness": 0,
     "atmosphere": 0,
@@ -150,36 +122,36 @@
     "compensate": 0,
     "unstoppable": 0,
     "nauseating": 0,
-    "fatigued": 1,
-    "exercise": 1,
-    "phototropism": 6,
+    "fatigued": 0,
+    "exercise": 0,
+    "phototropism": 4,
     "strategy": 0,
-    "expansion": 3,
-    "especially": 7,
+    "expansion": 1,
+    "especially": 8,
     "recession": 0,
     "frontiers": 0,
     "boost": 0,
     "compliments": 0,
     "uptake": 0,
-    "calcium": 2,
+    "calcium": 0,
     "electricity": 0,
     "stressed": 0,
     "mechanism": 0,
-    "cardiologists": 2,
-    "legitimate": 2,
+    "cardiologists": 1,
+    "legitimate": 1,
     "bargains": 0,
     "plunge": 0,
-    "complained": 2,
+    "complained": 0,
     "encouraging": 0,
     "symptoms": 0,
-    "archeology": 3,
+    "archeology": 1,
     "appointed": 0,
     "accessible": 0,
     "academics": 0,
     "regulations": 0,
     "mandates": 0,
     "different": 0,
-    "coercive": 1,
+    "coercive": 0,
     "cultivated": 0,
     "mysterious": 0
   }
