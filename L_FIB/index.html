@@ -4,92 +4,544 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Bootstrap demo</title>
+
+	<!-- SEO: Title + Description -->
+	<title>English Spelling Trainer | Pronunciation + Mistakes Practice</title>
+	<meta name="description"
+		content="Practice English spelling with pronunciation, voice/accent selection, random speed, and mistakes-only mode. Track your most misspelled words and improve faster." />
+	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="https://emerald.pythonanywhere.com/" />
+
+	<!-- Open Graph / Twitter -->
+	<meta property="og:title" content="English Spelling Trainer" />
+	<meta property="og:description"
+		content="Spelling practice with pronunciation, voice selection, and mistakes-only mode. Improve faster with personalized practice." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://emerald.pythonanywhere.com/" />
+	<meta name="twitter:card" content="summary" />
+
+	<!-- Performance -->
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		:root {
+			--card-radius: 18px;
+			--soft-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+			--soft-border: rgba(0, 0, 0, 0.06);
+		}
+
+		body {
+			min-height: 100vh;
+			background:
+				radial-gradient(1200px 600px at 10% 10%, rgba(13, 110, 253, 0.18), transparent 60%),
+				radial-gradient(900px 500px at 90% 10%, rgba(25, 135, 84, 0.16), transparent 55%),
+				radial-gradient(800px 500px at 50% 90%, rgba(111, 66, 193, 0.12), transparent 55%),
+				linear-gradient(180deg, #f7f9ff, #ffffff 60%, #f7fbff);
+		}
+
+		.brand {
+			font-weight: 800;
+			letter-spacing: .2px;
+		}
+
+		.card {
+			border: 1px solid var(--soft-border);
+			border-radius: var(--card-radius);
+			box-shadow: var(--soft-shadow);
+		}
+
+		.pill {
+			border-radius: 999px;
+			padding: 4px 10px;
+			background: rgba(13, 110, 253, 0.08);
+			border: 1px solid rgba(13, 110, 253, 0.12);
+			font-size: 12px;
+		}
+
+		.word-box {
+			border-radius: 16px;
+			border: 1px dashed rgba(0, 0, 0, 0.12);
+			background: rgba(255, 255, 255, 0.75);
+			transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
+		}
+
+		.word-text {
+			font-size: clamp(34px, 4vw, 56px);
+			font-weight: 900;
+			letter-spacing: 0.6px;
+			line-height: 1.0;
+		}
+
+		.subtle {
+			color: rgba(0, 0, 0, 0.55);
+		}
+
+		.form-control,
+		.form-select {
+			border-radius: 14px;
+		}
+
+		.btn {
+			border-radius: 14px;
+		}
+
+		.btn-soft {
+			background: rgba(13, 110, 253, 0.10);
+			border: 1px solid rgba(13, 110, 253, 0.18);
+		}
+
+		.btn-soft:hover {
+			background: rgba(13, 110, 253, 0.16);
+		}
+
+		.kbd-hint code {
+			background: rgba(0, 0, 0, 0.06);
+			padding: 2px 6px;
+			border-radius: 8px;
+		}
+
+		#meaningBox {
+			display: none;
+		}
+
+		.small-link a {
+			text-decoration: none;
+		}
+
+		.small-link a:hover {
+			text-decoration: underline;
+		}
+
+		/* =========================
+		   NEW: Feedback animations
+		   ========================= */
+
+		@keyframes shakeSoft {
+			0% { transform: translateX(0); }
+			20% { transform: translateX(calc(-1px * var(--shake, 6))); }
+			40% { transform: translateX(calc( 1px * var(--shake, 6))); }
+			60% { transform: translateX(calc(-0.7px * var(--shake, 6))); }
+			80% { transform: translateX(calc( 0.7px * var(--shake, 6))); }
+			100% { transform: translateX(0); }
+		}
+
+		@keyframes successPulse {
+			0% { box-shadow: 0 0 0 rgba(25, 135, 84, 0.0); }
+			40% { box-shadow: 0 0 0 10px rgba(25, 135, 84, 0.10); }
+			100% { box-shadow: 0 0 0 rgba(25, 135, 84, 0.0); }
+		}
+
+		.word-box.is-wrong {
+			border-color: rgba(220, 53, 69, 0.55) !important;
+			background: rgba(220, 53, 69, 0.06) !important;
+			animation: shakeSoft 420ms ease;
+		}
+
+		.word-box.is-correct {
+			border-color: rgba(25, 135, 84, 0.60) !important;
+			background: rgba(25, 135, 84, 0.06) !important;
+			animation: successPulse 650ms ease;
+		}
+
+		/* Letter highlight */
+		.letter-ok {
+			color: #198754;
+			font-weight: 800;
+		}
+
+		.letter-bad {
+			color: #dc3545;
+			font-weight: 800;
+			text-decoration: underline;
+			text-decoration-thickness: 2px;
+			text-underline-offset: 3px;
+		}
+
+		.letter-miss {
+			color: #dc3545;
+			font-weight: 800;
+			opacity: 0.9;
+		}
+
+		.letter-extra {
+			color: #dc3545;
+			font-weight: 800;
+			opacity: 0.9;
+		}
+	</style>
 </head>
 
-<body class="">
-	<div class="container py-4">
+<body>
+	<div class="container py-4 py-lg-5">
+
+		<!-- Top bar -->
+		<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+			<div>
+				<div class="brand h3 mb-0">English Spelling Trainer</div>
+				<div class="subtle">Pronunciation + spelling practice with personalized mistakes tracking</div>
+			</div>
+
+			<div class="d-flex gap-2 align-items-center">
+				<span class="pill"><i class="bi bi-soundwave me-1"></i> Auto-speak: ON</span>
+				<span class="pill"><i class="bi bi-shield-check me-1"></i> Per-user progress</span>
+			</div>
+		</div>
+
 		<!-- Status / Header box -->
-		<div class="card shadow mb-4">
+		<div class="card mb-4">
 			<div class="card-body">
-				<div class="d-flex flex-wrap gap-3 align-items-center">
-					<div><strong>Mode:</strong> {{ mode_label }}</div>
-					<div><strong>Progress:</strong> {{ mastered }}/{{ total }}</div>
-					<div class="text-muted small">(Need {{ req }} correct in a row)</div>
-					<div class="text-muted small">Auto-speak after submit: ON</div>
+				<div class="d-flex flex-wrap gap-3 align-items-center justify-content-between">
+					<div class="d-flex flex-wrap gap-3 align-items-center">
+						<div><strong>Mode:</strong> {{ mode_label }}</div>
+						<div><strong>Progress:</strong> {{ mastered }}/{{ total }}</div>
+						<div class="text-muted small">(Need {{ req }} correct in a row)</div>
+					</div>
+
+					<div class="small-link">
+						<a class="me-3" href="/?mode=ordered&start=1"><i class="bi bi-list-ol me-1"></i>Ordered</a>
+						<a class="me-3" href="/?mode=random"><i class="bi bi-shuffle me-1"></i>Random</a>
+						<a href="/?mode=mistakes"><i class="bi bi-exclamation-triangle me-1"></i>Mistakes Only</a>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Controls -->
-		<div class="d-flex flex-wrap gap-2 align-items-center mb-4">
-			<button type="button" class="btn btn-primary" onclick="speakWord()"> <i class="bi bi-volume-down-fill"></i>
-				Speak</button>
-			<button type="button" class="btn btn-outline-secondary" onclick="toggleShowMeaning()"> Meaning </button>
-			<div class="vr mx-1"></div>
-			<a class="btn btn-link px-0" href="/?mode=ordered&start=1">Ordered</a>
-			<a class="btn btn-link px-0" href="/?mode=random">Random</a>
-			<a class="small" href="/?mode=mistakes">Mistakes Only</a>
+		<!-- Main: word + form -->
+		<div class="row g-4">
+			<div class="col-lg-7">
+				<div class="card">
+					<div class="card-body p-4">
+						<div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+							<div class="subtle">Listen and type the correct spelling</div>
+
+							<div class="d-flex gap-2">
+								<button type="button" class="btn btn-primary" onclick="speakWord()">
+									<i class="bi bi-volume-down-fill me-1"></i> Speak
+								</button>
+								<button type="button" class="btn btn-soft" onclick="toggleShowMeaning()">
+									<i class="bi bi-translate me-1"></i> Meaning
+								</button>
+							</div>
+						</div>
+
+						<!-- NOTE: added id="wordBox" but did NOT remove any classes -->
+						<div id="wordBox" class="word-box p-4 mt-3">
+							<div class="display-6 text-center">{{ meaning }}</div>
+
+							<!-- NOTE: added id="correctWord" wrapper to allow letter highlighting -->
+							<div id="meaningBox" class="mt-3 text-center">
+								<div class="subtle small mb-1">English meaning</div>
+								<div class="fw-semibold" id="correctWord">{{ word }}</div>
+							</div>
+						</div>
+
+						<!-- Form -->
+						<form method="POST" action="/answer" class="mt-4">
+							<label class="form-label fw-semibold">Type the word</label>
+
+							<div class="input-group input-group-lg mb-2">
+								<input id="answerInput" type="text" name="answer" class="form-control" autofocus autocomplete="off"
+									placeholder="Type the word..." />
+								<button class="btn btn-success shadow-sm" type="submit" id="button-addon2">
+									<i class="bi bi-check2-circle me-1"></i> Submit
+								</button>
+							</div>
+
+							<div class="kbd-hint small text-muted">
+								Hint: type <code>-re</code> to replay pronunciation
+							</div>
+
+							<!-- Message -->
+							{% if message %}
+							<div id="messageBox" class="alert alert-info mt-3 mb-0" role="alert">
+								{{ message|safe }}
+							</div>
+							{% endif %}
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right column: controls + mistakes -->
+			<div class="col-lg-5">
+				<div class="card mb-4">
+					<div class="card-body p-4">
+						<div class="fw-semibold mb-3"><i class="bi bi-sliders me-1"></i> Voice & Accent</div>
+
+						<div class="row g-2">
+							<div class="col-12 col-md-6">
+								<label class="form-label small text-muted mb-1">Gender</label>
+								<select id="genderSelect" class="form-select form-select-sm">
+									<option value="any">Any gender</option>
+									<option value="female">Female</option>
+									<option value="male">Male</option>
+								</select>
+							</div>
+
+							<div class="col-12 col-md-6">
+								<label class="form-label small text-muted mb-1">Accent</label>
+								<select id="accentSelect" class="form-select form-select-sm">
+									<option value="any">Any accent</option>
+									<option value="en-US">English US</option>
+									<option value="en-GB">English UK</option>
+									<option value="en-AU">English AU</option>
+								</select>
+							</div>
+
+							<div class="col-12 col-md-6">
+								<label class="form-label small text-muted mb-1">Speed</label>
+								<select id="speedSelect" class="form-select form-select-sm">
+									<option value="random">Natural Random</option>
+									<option value="0.8">Slightly slow</option>
+									<option value="1.0">Normal</option>
+									<option value="1.15">Slightly fast</option>
+								</select>
+							</div>
+
+							<div class="col-12">
+								<label class="form-label small text-muted mb-1">Voice</label>
+								<select id="voiceSelect" class="form-select form-select-sm">
+									<option value="random">Random</option>
+								</select>
+							</div>
+						</div>
+
+						<hr class="my-4">
+
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="fw-semibold"><i class="bi bi-lightning-charge me-1"></i> Quick actions</div>
+							<a class="small text-decoration-none" href="/?restart=1" title="Restart session">
+								<i class="bi bi-arrow-clockwise me-1"></i> Restart
+							</a>
+						</div>
+
+						<div class="subtle small mt-2">
+							Tip: Use <b>Mistakes Only</b> mode to focus on words you miss the most.
+						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body p-4">
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="fw-semibold"><i class="bi bi-exclamation-triangle me-1"></i> Top Misspelled Words</div>
+							<div class="small text-muted">{{ misspelled_words_count }}</div>
+						</div>
+
+						{% if top_mistakes and top_mistakes|length > 0 %}
+						<ol class="mt-3 mb-0">
+							{% for item in top_mistakes %}
+							<li class="mb-1"><b>{{ item.word }}</b> — {{ item.mistakes }} mistake(s)</li>
+							{% endfor %}
+						</ol>
+						{% else %}
+						<div class="text-muted mt-3">No mistakes yet. ✅</div>
+						{% endif %}
+					</div>
+				</div>
+
+			</div>
 		</div>
 
-		<!-- Form -->
-		<form method="POST" action="/answer" class="p-4 border rounded shadow">
-			<label for="basic-url" class="form-label">English Spelling Trainer <i class="bi bi-journal-check"></i>
-			</label>
-			<div class="input-group mb-3">
-				<input id="answerInput" type="text" name="answer" class="form-control" autofocus autocomplete="off"
-					placeholder="Type the word..." />
-				<button class="btn btn-success shadow" type="submit" id="button-addon2">Submit</button>
-			</div>
-			<div class="form-text">
-				{% if message %}
-				{{ message|safe }}
-				{% endif %}
-				{{meaning}}
-			</div>
-		</form>
-		<div class="mt-4 p-3 border rounded bg-light shadow">
-			<b>Top Misspelled Words | {{ misspelled_words_count }}</b>
-
-			{% if top_mistakes and top_mistakes|length > 0 %}
-			<ol class="mt-2 mb-0">
-				{% for item in top_mistakes %}
-				<li><b>{{ item.word }}</b> — {{ item.mistakes }} mistake(s)</li>
-				{% endfor %}
-
-			</ol>
-			{% else %}
-			<div class="text-muted mt-2">No mistakes yet. ✅</div>
-			{% endif %}
+		<!-- Footer -->
+		<div class="text-center small text-muted mt-4">
+			<span>© {{ 2026 }} English Spelling Trainer</span>
+			<span class="mx-2">•</span>
+			<span>Built with Flask + Bootstrap</span>
 		</div>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-		integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 		crossorigin="anonymous"></script>
 
 	<script>
+		let allVoices = [];
+		let lastRandomVoiceKey = "";
+
+		function setCookie(name, value, days = 365) {
+			const d = new Date();
+			d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+			document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
+		}
+
+		function getCookie(name) {
+			const key = encodeURIComponent(name) + "=";
+			const parts = (document.cookie || "").split(";").map(s => s.trim());
+			for (const p of parts) {
+				if (p.startsWith(key)) return decodeURIComponent(p.substring(key.length));
+			}
+			return "";
+		}
+
+		const femaleNames = new Set([
+			"Zira", "Natasha", "Clara", "Emily", "Molly", "Leah", "Libby", "Maisie", "Sonia", "Ava", "Emma", "Ana", "Aria", "Jenny", "Michelle",
+			"Neerja", "Rosa", "Luna", "Ezinne", "Imani", "Elimu", "Yan"
+		]);
+
+		const maleNames = new Set([
+			"David", "Mark", "William", "Liam", "Connor", "Mitchell", "Luke", "Ryan", "Thomas", "Andrew", "Brian", "Christopher", "Eric", "Guy", "Roger", "Steffan",
+			"Prabhat", "James", "Wayne", "Chilemba", "Abeo", "Sam"
+		]);
+
+		function extractFirstName(voiceName) {
+			if (!voiceName) return "";
+			let s = voiceName.trim();
+			if (s.toLowerCase().startsWith("microsoft ")) s = s.substring("microsoft ".length);
+			const first = s.split(/[\s-]/)[0] || "";
+			return first.trim();
+		}
+
+		function inferGender(voice) {
+			const first = extractFirstName(voice?.name || "");
+			if (femaleNames.has(first)) return "female";
+			if (maleNames.has(first)) return "male";
+			return "unknown";
+		}
+
+		function buildVoiceKey(v) {
+			return `${v.name}|||${v.lang}`;
+		}
+
+		function matchesAccent(v, accent) {
+			const lang = (v.lang || "").toLowerCase();
+			if (accent === "any") return lang.startsWith("en-");
+			const a = accent.toLowerCase();
+			return lang === a || lang.startsWith(a + "-");
+		}
+
+		function matchesGender(v, gender) {
+			if (gender === "any") return true;
+			return inferGender(v) === gender;
+		}
+
+		function getFilteredVoices() {
+			const gender = document.getElementById("genderSelect")?.value || "any";
+			const accent = document.getElementById("accentSelect")?.value || "any";
+
+			const english = allVoices.filter(v => (v.lang || "").toLowerCase().startsWith("en-"));
+			return english.filter(v => matchesAccent(v, accent) && matchesGender(v, gender));
+		}
+
+		function populateVoiceDropdown() {
+			const voiceSel = document.getElementById("voiceSelect");
+			if (!voiceSel) return;
+
+			const filtered = getFilteredVoices();
+			const savedVoiceKey = getCookie("lfib_voiceKey");
+			const keep = savedVoiceKey || "random";
+
+			voiceSel.innerHTML = `<option value="random">Random</option>`;
+
+			filtered.forEach(v => {
+				const opt = document.createElement("option");
+				opt.value = buildVoiceKey(v);
+				opt.textContent = `${v.name} (${v.lang})${v.default ? " ★" : ""}`;
+				voiceSel.appendChild(opt);
+			});
+
+			const hasKeep = [...voiceSel.options].some(o => o.value === keep);
+			voiceSel.value = hasKeep ? keep : "random";
+
+			voiceSel.onchange = () => setCookie("lfib_voiceKey", voiceSel.value);
+		}
+
+		function loadPrefsIntoControls() {
+			const genderSel = document.getElementById("genderSelect");
+			const accentSel = document.getElementById("accentSelect");
+			const speedSel = document.getElementById("speedSelect");
+
+			const g = getCookie("lfib_gender") || "any";
+			const a = getCookie("lfib_accent") || "any";
+			const r = getCookie("lfib_rate") || "random";
+
+			if (genderSel) genderSel.value = g;
+			if (accentSel) accentSel.value = a;
+			if (speedSel) speedSel.value = r;
+
+			if (genderSel) genderSel.onchange = () => {
+				setCookie("lfib_gender", genderSel.value);
+				setCookie("lfib_voiceKey", "random");
+				populateVoiceDropdown();
+			};
+
+			if (accentSel) accentSel.onchange = () => {
+				setCookie("lfib_accent", accentSel.value);
+				setCookie("lfib_voiceKey", "random");
+				populateVoiceDropdown();
+			};
+
+			if (speedSel) speedSel.onchange = () => {
+				setCookie("lfib_rate", speedSel.value);
+			};
+		}
+
+		function pickRandomVoiceSmart() {
+			const filtered = getFilteredVoices();
+			if (filtered.length === 0) return null;
+
+			if (filtered.length === 1) {
+				lastRandomVoiceKey = buildVoiceKey(filtered[0]);
+				return filtered[0];
+			}
+
+			let chosen = null;
+			for (let tries = 0; tries < 10; tries++) {
+				const v = filtered[Math.floor(Math.random() * filtered.length)];
+				const k = buildVoiceKey(v);
+				if (k !== lastRandomVoiceKey) {
+					chosen = v;
+					break;
+				}
+			}
+
+			if (!chosen) chosen = filtered[Math.floor(Math.random() * filtered.length)];
+			lastRandomVoiceKey = buildVoiceKey(chosen);
+			return chosen;
+		}
+
+		function getRateFromUI() {
+			const speedSel = document.getElementById("speedSelect");
+			const v = speedSel?.value || getCookie("lfib_rate") || "random";
+
+			if (v === "random") {
+				// Natural human-like variation
+				const r = (Math.random() + Math.random()) / 2;  // bias toward center
+				return 0.88 + r * (1.12 - 0.88); // 0.88 .. 1.12
+			}
+
+			const r = parseFloat(v);
+			return Number.isFinite(r) ? r : 1.0;
+		}
+
+		function findVoiceByKey(key) {
+			if (!key || key === "random") return null;
+			return allVoices.find(v => buildVoiceKey(v) === key) || null;
+		}
+
 		function speakWord() {
 			const word = "{{ word }}";
-			if (!window.speechSynthesis) {
-				alert("SpeechSynthesis is not supported in this browser.");
-				return;
-			}
+			if (!window.speechSynthesis || !word) return;
+
+			const voiceSel = document.getElementById("voiceSelect");
+			const key = voiceSel?.value || "random";
+
+			let chosen = null;
+			if (key !== "random") chosen = findVoiceByKey(key);
+			if (!chosen) chosen = pickRandomVoiceSmart();
+
 			const u = new SpeechSynthesisUtterance(word);
 			u.lang = "en-US";
-			u.rate = 0.5;   // 👈 slow down here
+			u.rate = getRateFromUI();
 			u.pitch = 1.0;
 			u.volume = 1.0;
+			if (chosen) u.voice = chosen;
 
 			window.speechSynthesis.cancel();
 			window.speechSynthesis.speak(u);
@@ -97,17 +549,170 @@
 
 		function toggleShowMeaning() {
 			const box = document.getElementById("meaningBox");
+			if (!box) return;
 			box.style.display = (box.style.display === "none") ? "block" : "none";
 		}
 
-		document.addEventListener("DOMContentLoaded", () => {
+		function initVoicesAndUI() {
+			allVoices = window.speechSynthesis.getVoices() || [];
+			loadPrefsIntoControls();
+			populateVoiceDropdown();
+
 			const inp = document.getElementById("answerInput");
 			if (inp) inp.focus();
 
 			const word = "{{ word }}";
-			if (word && word.trim().length > 0) {
-				speakWord();
+			if (word && word.trim().length > 0) speakWord();
+		}
+
+		/* =========================
+		   NEW: Error click + feedback
+		   ========================= */
+
+		function playSoftErrorClick() {
+			// very soft click using WebAudio (no external file)
+			try {
+				const AudioCtx = window.AudioContext || window.webkitAudioContext;
+				if (!AudioCtx) return;
+
+				const ctx = new AudioCtx();
+
+				const osc = ctx.createOscillator();
+				const gain = ctx.createGain();
+
+				osc.type = "square";
+				osc.frequency.setValueAtTime(700, ctx.currentTime);
+
+				// very low volume
+				gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+				gain.gain.exponentialRampToValueAtTime(0.03, ctx.currentTime + 0.005);
+				gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.06);
+
+				osc.connect(gain);
+				gain.connect(ctx.destination);
+
+				osc.start();
+				osc.stop(ctx.currentTime + 0.07);
+
+				setTimeout(() => ctx.close?.(), 120);
+			} catch (_) { }
+		}
+
+		function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+
+		function computeRoughDiffScore(a, b) {
+			// cheap "distance" score: mismatches + length difference
+			a = (a || "").toLowerCase();
+			b = (b || "").toLowerCase();
+			const minLen = Math.min(a.length, b.length);
+			let mism = 0;
+			for (let i = 0; i < minLen; i++) {
+				if (a[i] !== b[i]) mism++;
 			}
+			mism += Math.abs(a.length - b.length);
+			return mism;
+		}
+
+		function highlightLetters(answer, correct) {
+			const el = document.getElementById("correctWord");
+			if (!el) return;
+
+			answer = (answer || "");
+			correct = (correct || "");
+			const a = answer.toLowerCase();
+			const c = correct;
+
+			let html = "";
+			for (let i = 0; i < c.length; i++) {
+				const ch = c[i];
+				const ach = a[i] || "";
+				if (ach && ach === ch.toLowerCase()) {
+					html += `<span class="letter-ok">${ch}</span>`;
+				} else {
+					// missing or wrong
+					html += `<span class="letter-bad">${ch}</span>`;
+				}
+			}
+
+			// if user typed extra letters, show a small hint
+			if (a.length > c.length) {
+				const extra = answer.substring(c.length);
+				html += ` <span class="letter-extra">(+${extra.length})</span>`;
+			}
+
+			el.innerHTML = html;
+		}
+
+		function applyFeedbackFromMessage() {
+			const msgEl = document.getElementById("messageBox");
+			const wordBox = document.getElementById("wordBox");
+			if (!msgEl || !wordBox) return;
+
+			const msgText = (msgEl.innerText || "").trim();
+
+			// detect wrong/correct
+			const isWrong = msgText.includes("❌");
+			const isCorrect = msgText.includes("✅");
+
+			// try to extract answer and correct word from message string
+			// expected: "Your answer : X  Correct word: Y"
+			const m = msgText.match(/Your answer\s*:\s*(.*?)\s*Correct word\s*:\s*(.*)$/i);
+
+			if (isWrong) {
+				let ans = "";
+				let cor = "{{ word }}";
+				if (m) {
+					ans = (m[1] || "").trim();
+					cor = (m[2] || "").trim();
+				}
+
+				// ensure meaningBox visible so highlighting is visible
+				const meaningBox = document.getElementById("meaningBox");
+				if (meaningBox && meaningBox.style.display === "none") {
+					meaningBox.style.display = "block";
+				}
+
+				highlightLetters(ans, cor);
+
+				// shake intensity based on diff score
+				const score = computeRoughDiffScore(ans, cor); // 0..?
+				const shake = clamp(5 + score * 1.6, 6, 18);   // px-ish
+				wordBox.style.setProperty("--shake", shake);
+
+				wordBox.classList.remove("is-correct");
+				wordBox.classList.add("is-wrong");
+
+				playSoftErrorClick();
+
+				setTimeout(() => {
+					wordBox.classList.remove("is-wrong");
+					wordBox.style.removeProperty("--shake");
+				}, 720);
+			}
+
+			if (isCorrect) {
+				wordBox.classList.remove("is-wrong");
+				wordBox.classList.add("is-correct");
+
+				// reset highlighted spelling to normal word (optional)
+				const correctWordEl = document.getElementById("correctWord");
+				if (correctWordEl) correctWordEl.textContent = "{{ word }}";
+
+				setTimeout(() => wordBox.classList.remove("is-correct"), 760);
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+			if (!window.speechSynthesis) return;
+
+			initVoicesAndUI();
+
+			if (typeof window.speechSynthesis.onvoiceschanged !== "undefined") {
+				window.speechSynthesis.onvoiceschanged = () => initVoicesAndUI();
+			}
+
+			// NEW: apply feedback if message exists
+			applyFeedbackFromMessage();
 		});
 	</script>
 </body>

@@ -1,0 +1,17 @@
+{
+  "top": [
+    {
+      "word": "develop",
+      "mistakes": 9
+    },
+    {
+      "word": "communities",
+      "mistakes": 1
+    }
+  ],
+  "all": {
+    "responsibilities": 0,
+    "communities": 1,
+    "develop": 9
+  }
+}
